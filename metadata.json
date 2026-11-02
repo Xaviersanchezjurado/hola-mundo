@@ -1,0 +1,8 @@
+{
+  "name": "Remix Cosmere RPG Talent Tree",
+  "description": "Interactive Path of Exile-style talent tree and character sheet builder for Cosmere RPG roleplay characters.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
