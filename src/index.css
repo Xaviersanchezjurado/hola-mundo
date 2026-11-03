@@ -54,7 +54,21 @@
 /* ==========================================================================
    5. CARRUSEL DE HEROIC PATHS
    ========================================================================== */
-/* Marco de la imagen: contexto de apilamiento para el difuminado */
+/* 5.1 Escenario: separación horizontal entre la imagen activa y las laterales */
+.heroic-carousel-stage {
+  /* Media anchura de la imagen central + lateral + separación, según la altura de la imagen */
+  --carousel-spread: calc(min(52vh, 520px) * 0.408 + 32px);
+}
+
+/* 5.2 Diapositiva: deslizamiento suave al cambiar de posición */
+.heroic-carousel-slide {
+  transition:
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 500ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+}
+
+/* 5.3 Marco: contexto de apilamiento para el difuminado */
 .heroic-carousel-image-frame {
   position: relative;
   isolation: isolate;
@@ -73,7 +87,7 @@
   pointer-events: none;
 }
 
-/* Máscara radial que funde la imagen con el fondo */ 
+/* 5.4 Imagen: máscara radial que funde la imagen con el fondo */
 .heroic-carousel-image {
   display: block;
   mask-image: radial-gradient(ellipse 50% 80% at center, #000 0 52%, rgb(0 0 0 / 35%) 70%, transparent 88%);
