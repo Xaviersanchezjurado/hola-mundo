@@ -19,6 +19,7 @@ import { TalentTooltip } from './components/TalentTooltip';
 import { OrderSelectionModal } from './components/OrderSelectionModal';
 import { CharacterSheetModal } from './components/CharacterSheetModal';
 import { QuickSearchModal } from './components/QuickSearchModal';
+import { HeroicPathCarousel } from './components/HeroicPathCarousel';
 import { Sparkles, Info, AlertCircle, Award } from 'lucide-react';
 
 const STORAGE_KEY = 'cosmere_rpg_character_state_v1';
@@ -73,6 +74,7 @@ export default function App() {
 
   // Active Category Filter
   const [activeSection, setActiveSection] = useState<TreeSection>('heroic');
+  const [selectedHeroicPath, setSelectedHeroicPath] = useState<string | null>(null);
 
   // UI Interactive States
   const [hoveredTalentId, setHoveredTalentId] = useState<string | null>(null);
@@ -369,6 +371,21 @@ export default function App() {
     ? TALENTS_BY_ID[hoveredTalentId]
     : null;
 
+  const handleSectionChange = (section: TreeSection) => {
+    setActiveSection(section);
+    setSelectedHeroicPath(null);
+    setInspectTalentId(null);
+    setHoveredTalentId(null);
+    setSearchHighlightId(null);
+  };
+
+  const handleHeroicPathSelect = (pathName: string) => {
+    setSelectedHeroicPath(pathName);
+    setInspectTalentId(null);
+    setHoveredTalentId(null);
+    setSearchHighlightId(null);
+  };
+
   return (
     <div className="relative flex h-screen w-screen flex-col overflow-hidden bg-slate-950 font-sans text-slate-100">
       {/* Top Header HUD */}
@@ -382,11 +399,11 @@ export default function App() {
         remainingPoints={remainingPoints}
         freeSurgesChosen={freeSurgesChosen}
         activeSection={activeSection}
-        onSectionChange={setActiveSection}
+        onSectionChange={handleSectionChange}
         onOpenSheet={() => setIsSheetModalOpen(true)}
         onReset={() => setIsResetConfirmOpen(true)}
         onOpenSearch={() => setIsSearchModalOpen(true)}
-        onCenterView={() => setActiveSection('heroic')}
+        onCenterView={() => handleSectionChange('heroic')}
       />
 
       {/* Main Interactive Canvas */}
@@ -394,6 +411,7 @@ export default function App() {
         <PoEStyleTreeCanvas
           selectedTalents={selectedTalents}
           activeSection={activeSection}
+          selectedHeroicPath={selectedHeroicPath}
           getNodeStatus={getNodeStatus}
           hoveredTalentId={hoveredTalentId}
           onHoverTalent={(id, pos) => {
@@ -403,6 +421,10 @@ export default function App() {
           onSelectTalent={handleSelectTalent}
           searchHighlightId={searchHighlightId}
         />
+
+        {activeSection === 'heroic' && !selectedHeroicPath && (
+          <HeroicPathCarousel onSelectPath={handleHeroicPathSelect} />
+        )}
 
         {/* Free Gifts Floating Reminder Banners */}
         {selectedTalents.includes('dor_key') && !freeDorTalentChosen && (
@@ -489,6 +511,7 @@ export default function App() {
           const talent = TALENTS_BY_ID[id];
           if (talent) {
             setActiveSection(talent.category === 'heroic' ? 'heroic' : 'investiture');
+            setSelectedHeroicPath(talent.category === 'heroic' ? talent.pathName : null);
           }
           setSearchHighlightId(id);
           setInspectTalentId(id);

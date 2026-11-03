@@ -182,7 +182,7 @@ export const CharacterHeader: React.FC<CharacterHeaderProps> = ({
               key={tab.id}
               type="button"
               onClick={() => onSectionChange(tab.id as TreeSection)}
-              className={`font-cinzel-decorative relative border border-transparent bg-transparent px-3 sm:px-4 py-1.5 text-xs sm:text-sm font-bold tracking-wider whitespace-nowrap transition-colors cursor-pointer ${
+              className={`font-cinzel-decorative relative border border-transparent bg-transparent px-3 sm:px-4 py-1.5 text-xs sm:text-sm tracking-wider whitespace-nowrap transition-colors cursor-pointer ${
                 activeSection === tab.id
                   ? 'text-white'
                   : 'text-slate-400 hover:text-slate-200'

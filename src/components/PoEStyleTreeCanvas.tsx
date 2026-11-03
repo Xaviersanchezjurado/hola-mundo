@@ -56,6 +56,7 @@ function createHeroicLayout(): Map<string, { x: number; y: number }> {
 interface PoEStyleTreeCanvasProps {
   selectedTalents: string[];
   activeSection: TreeSection;
+  selectedHeroicPath: string | null;
   getNodeStatus: (id: string) => NodeStatus;
   hoveredTalentId: string | null;
   onHoverTalent: (talentId: string | null, clientPos?: { x: number; y: number }) => void;
@@ -66,6 +67,7 @@ interface PoEStyleTreeCanvasProps {
 export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
   selectedTalents,
   activeSection,
+  selectedHeroicPath,
   getNodeStatus,
   hoveredTalentId,
   onHoverTalent,
@@ -100,6 +102,7 @@ export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
     y: 0,
     scale: 0.55,
   });
+  const [isCinematicZoom, setIsCinematicZoom] = useState(false);
 
   const isDragging = useRef(false);
   const dragStart = useRef({ x: 0, y: 0 });
@@ -145,6 +148,52 @@ export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
       scale: targetScale,
     });
   }, [searchHighlightId, heroicLayout]);
+
+  // Cinematically move into the selected Heroic Path after choosing its carousel card.
+  useEffect(() => {
+    if (activeSection !== 'heroic' || !selectedHeroicPath) {
+      setIsCinematicZoom(false);
+      return;
+    }
+    if (searchHighlightId || !containerRef.current) return;
+
+    const pathTalents = ALL_TALENTS.filter(
+      (talent) => talent.category === 'heroic' && talent.pathName === selectedHeroicPath
+    );
+    if (pathTalents.length === 0) return;
+
+    const pathPositions = pathTalents.map(getTalentPosition);
+    const minX = Math.min(...pathPositions.map((position) => position.x));
+    const maxX = Math.max(...pathPositions.map((position) => position.x));
+    const minY = Math.min(...pathPositions.map((position) => position.y));
+    const maxY = Math.max(...pathPositions.map((position) => position.y));
+    const centerX = (minX + maxX) / 2;
+    const centerY = (minY + maxY) / 2;
+    const { clientWidth, clientHeight } = containerRef.current;
+    const targetScale = Math.max(
+      0.3,
+      Math.min(
+        0.72,
+        (clientWidth - 80) / (maxX - minX + 130),
+        (clientHeight - 100) / (maxY - minY + 46)
+      )
+    );
+
+    setIsCinematicZoom(true);
+    const animationFrame = window.requestAnimationFrame(() => {
+      setTransform({
+        x: clientWidth / 2 - centerX * targetScale,
+        y: clientHeight / 2 - centerY * targetScale,
+        scale: targetScale,
+      });
+    });
+    const transitionTimeout = window.setTimeout(() => setIsCinematicZoom(false), 1500);
+
+    return () => {
+      window.cancelAnimationFrame(animationFrame);
+      window.clearTimeout(transitionTimeout);
+    };
+  }, [activeSection, selectedHeroicPath, searchHighlightId, heroicLayout]);
 
   // Mouse pan handlers
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -270,6 +319,7 @@ export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
         style={{
           transform: `translate(${transform.x}px, ${transform.y}px) scale(${transform.scale})`,
           transformOrigin: '0 0',
+          transition: isCinematicZoom ? 'transform 1400ms cubic-bezier(0.16, 1, 0.3, 1)' : undefined,
         }}
       >
         <defs>
@@ -398,6 +448,7 @@ export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
         style={{
           transform: `translate(${transform.x}px, ${transform.y}px) scale(${transform.scale})`,
           transformOrigin: '0 0',
+          transition: isCinematicZoom ? 'transform 1400ms cubic-bezier(0.16, 1, 0.3, 1)' : undefined,
         }}
       >
         {visibleTalents.map((talent) => {
