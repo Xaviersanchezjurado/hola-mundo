@@ -53,7 +53,7 @@ export const HeroicPathCarousel: React.FC<HeroicPathCarouselProps> = ({ onSelect
           type="button"
           onClick={showPrevious}
           aria-label={`Ver ${previousPath.name}`}
-          className="hidden shrink-0 opacity-55 transition duration-300 hover:scale-[1.03] hover:opacity-85 md:mr-6 md:block lg:mr-10"
+          className="hidden shrink-0 opacity-55 transition duration-300 hover:scale-[1.05] hover:opacity-85 md:mr-6 md:block lg:mr-10"
         >
           <div className="heroic-carousel-image-frame">
             <img
@@ -69,7 +69,7 @@ export const HeroicPathCarousel: React.FC<HeroicPathCarouselProps> = ({ onSelect
           type="button"
           onClick={() => onSelectPath(activePath.name)}
           aria-label={`Seleccionar ${activePath.name}`}
-          className="relative z-10 shrink-0 transition duration-500 hover:scale-[1.025] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70"
+          className="relative z-10 shrink-0 transition duration-500 hover:scale-[1.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70"
         >
           <div className="heroic-carousel-image-frame">
             <img
@@ -85,7 +85,7 @@ export const HeroicPathCarousel: React.FC<HeroicPathCarouselProps> = ({ onSelect
           type="button"
           onClick={showNext}
           aria-label={`Ver ${nextPath.name}`}
-          className="hidden shrink-0 opacity-55 transition duration-300 hover:scale-[1.03] hover:opacity-85 md:ml-6 md:block lg:ml-10"
+          className="hidden shrink-0 opacity-55 transition duration-300 hover:scale-[1.05] hover:opacity-85 md:ml-6 md:block lg:ml-10"
         >
           <div className="heroic-carousel-image-frame">
             <img

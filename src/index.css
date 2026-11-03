@@ -73,7 +73,7 @@
   pointer-events: none;
 }
 
-/* Máscara radial que funde la imagen con el fondo */
+/* Máscara radial que funde la imagen con el fondo */ 
 .heroic-carousel-image {
   display: block;
   mask-image: radial-gradient(ellipse 50% 80% at center, #000 0 52%, rgb(0 0 0 / 35%) 70%, transparent 88%);
