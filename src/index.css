@@ -12,6 +12,33 @@
   font-family: 'Cinzel Decorative', serif;
 }
 
+.heroic-path-heading {
+  text-shadow: 0 0 16px rgba(125, 212, 252, 0.692), 0 0 20px rgba(56, 191, 248, 0.438);
+}
+
+.heroic-carousel-image-frame {
+  position: relative;
+  isolation: isolate;
+}
+
+.heroic-carousel-image-frame::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  content: '';
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  mask-image: radial-gradient(ellipse 60% 90% at center, transparent 56%, #000 100%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 90% at center, transparent 56%, #000 100%);
+  pointer-events: none;
+}
+
+.heroic-carousel-image {
+  display: block;
+  mask-image: radial-gradient(ellipse 50% 80% at center, #000 0 52%, rgb(0 0 0 / 35%) 70%, transparent 88%);
+  -webkit-mask-image: radial-gradient(ellipse 50% 80% at center, #000 0 52%, rgb(0 0 0 / 35%) 70%, transparent 88%);
+}
+
 .tree-tab-label-glow {
   position: relative;
   isolation: isolate;

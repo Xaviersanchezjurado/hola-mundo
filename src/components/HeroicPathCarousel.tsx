@@ -34,17 +34,17 @@ export const HeroicPathCarousel: React.FC<HeroicPathCarouselProps> = ({ onSelect
       <div className="starfield-background absolute inset-0 z-0 pointer-events-none opacity-70" />
 
         <header className="relative z-10 -translate-y-3 text-center sm:-translate-y-5">
-          <p className="font-cinzel-decorative text-xl tracking-[0.18em] text-sky-300 sm:text-2xl">
+          <p className="heroic-path-heading font-cinzel-decorative text-xl tracking-[0.18em] text-sky-300 sm:text-2xl">
           SELECT YOUR HEROIC PATH
         </p>
       </header>
 
-      <div className="relative z-10 flex w-full max-w-6xl items-center justify-center gap-2 sm:gap-5">
+      <div className="relative z-10 flex w-full max-w-6xl items-center justify-center gap-2 sm:gap-10">
         <button
           type="button"
           onClick={showPrevious}
           aria-label="Ver Heroic Path anterior"
-          className="absolute left-1 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-slate-900/80 text-slate-200 shadow-lg transition hover:border-sky-300/50 hover:bg-slate-800 hover:text-white sm:left-3 sm:h-12 sm:w-12"
+          className="z-20 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-slate-900/80 text-slate-200 shadow-lg transition hover:border-sky-300/50 hover:bg-slate-800 hover:text-white sm:h-12 sm:w-12"
         >
           <ChevronLeft className="h-6 w-6" />
         </button>
@@ -53,13 +53,16 @@ export const HeroicPathCarousel: React.FC<HeroicPathCarouselProps> = ({ onSelect
           type="button"
           onClick={showPrevious}
           aria-label={`Ver ${previousPath.name}`}
-          className="hidden shrink-0 opacity-55 transition duration-300 hover:scale-[1.03] hover:opacity-85 md:block"
+          className="hidden shrink-0 opacity-55 transition duration-300 hover:scale-[1.03] hover:opacity-85 md:mr-6 md:block lg:mr-10"
         >
-          <img
-            src={`${HEROIC_PATHS_BASE_URL}${previousPath.image}`}
-            alt={previousPath.name}
-            className="h-[min(34vh,320px)] w-auto max-w-[20vw] object-contain drop-shadow-[0_12px_32px_rgba(0,0,0,0.45)]"
-          />
+          <div className="heroic-carousel-image-frame">
+            <img
+              key={`previous-${previousPath.name}`}
+              src={`${HEROIC_PATHS_BASE_URL}${previousPath.image}`}
+              alt={previousPath.name}
+              className="heroic-carousel-image h-[min(34vh,320px)] w-auto max-w-[20vw] object-contain drop-shadow-[0_12px_32px_rgba(0,0,0,0.45)]"
+            />
+          </div>
         </button>
 
         <button
@@ -68,32 +71,37 @@ export const HeroicPathCarousel: React.FC<HeroicPathCarouselProps> = ({ onSelect
           aria-label={`Seleccionar ${activePath.name}`}
           className="relative z-10 shrink-0 transition duration-500 hover:scale-[1.025] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70"
         >
-          <img
-            key={activePath.name}
-            src={`${HEROIC_PATHS_BASE_URL}${activePath.image}`}
-            alt={activePath.name}
-            className="h-[min(52vh,520px)] w-auto max-w-[68vw] object-contain drop-shadow-[0_18px_50px_rgba(0,0,0,0.55)]"
-          />
+          <div className="heroic-carousel-image-frame">
+            <img
+              key={activePath.name}
+              src={`${HEROIC_PATHS_BASE_URL}${activePath.image}`}
+              alt={activePath.name}
+              className="heroic-carousel-image h-[min(52vh,520px)] w-auto max-w-[68vw] object-contain drop-shadow-[0_18px_50px_rgba(0,0,0,0.55)]"
+            />
+          </div>
         </button>
 
         <button
           type="button"
           onClick={showNext}
           aria-label={`Ver ${nextPath.name}`}
-          className="hidden shrink-0 opacity-55 transition duration-300 hover:scale-[1.03] hover:opacity-85 md:block"
+          className="hidden shrink-0 opacity-55 transition duration-300 hover:scale-[1.03] hover:opacity-85 md:ml-6 md:block lg:ml-10"
         >
-          <img
-            src={`${HEROIC_PATHS_BASE_URL}${nextPath.image}`}
-            alt={nextPath.name}
-            className="h-[min(34vh,320px)] w-auto max-w-[20vw] object-contain drop-shadow-[0_12px_32px_rgba(0,0,0,0.45)]"
-          />
+          <div className="heroic-carousel-image-frame">
+            <img
+              key={`next-${nextPath.name}`}
+              src={`${HEROIC_PATHS_BASE_URL}${nextPath.image}`}
+              alt={nextPath.name}
+              className="heroic-carousel-image h-[min(34vh,320px)] w-auto max-w-[20vw] object-contain drop-shadow-[0_12px_32px_rgba(0,0,0,0.45)]"
+            />
+          </div>
         </button>
 
         <button
           type="button"
           onClick={showNext}
           aria-label="Ver Heroic Path siguiente"
-          className="absolute right-1 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-slate-900/80 text-slate-200 shadow-lg transition hover:border-sky-300/50 hover:bg-slate-800 hover:text-white sm:right-3 sm:h-12 sm:w-12"
+          className="z-20 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-slate-900/80 text-slate-200 shadow-lg transition hover:border-sky-300/50 hover:bg-slate-800 hover:text-white sm:h-12 sm:w-12"
         >
           <ChevronRight className="h-6 w-6" />
         </button>
