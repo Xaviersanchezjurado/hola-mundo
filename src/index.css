@@ -1,44 +1,37 @@
+/* ==========================================================================
+   1. TAILWIND
+   ========================================================================== */
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* ==========================================================================
+   2. BASE Y ESTILOS GLOBALES
+   ========================================================================== */
 @layer base {
+  /* Fondo oscuro, texto claro y bloqueo del scroll de la ventana */
   body {
     @apply bg-slate-950 text-slate-100 antialiased overflow-hidden select-none;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   }
 }
 
+/* ==========================================================================
+   3. TIPOGRAFÍA
+   ========================================================================== */
+/* Fuente decorativa para títulos y pestañas */
 .font-cinzel-decorative {
   font-family: 'Cinzel Decorative', serif;
 }
 
+/* ==========================================================================
+   4. EFECTOS Y RESPLANDORES
+   ========================================================================== */
+/* Resplandor del título "Select Your Heroic Path" */
 .heroic-path-heading {
   text-shadow: 0 0 16px rgba(125, 212, 252, 0.692), 0 0 20px rgba(56, 191, 248, 0.438);
 }
 
-.heroic-carousel-image-frame {
-  position: relative;
-  isolation: isolate;
-}
-
-.heroic-carousel-image-frame::after {
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  content: '';
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  mask-image: radial-gradient(ellipse 60% 90% at center, transparent 56%, #000 100%);
-  -webkit-mask-image: radial-gradient(ellipse 60% 90% at center, transparent 56%, #000 100%);
-  pointer-events: none;
-}
-
-.heroic-carousel-image {
-  display: block;
-  mask-image: radial-gradient(ellipse 50% 80% at center, #000 0 52%, rgb(0 0 0 / 35%) 70%, transparent 88%);
-  -webkit-mask-image: radial-gradient(ellipse 50% 80% at center, #000 0 52%, rgb(0 0 0 / 35%) 70%, transparent 88%);
-}
-
+/* Halo difuminado detrás de la pestaña de árbol activa */
 .tree-tab-label-glow {
   position: relative;
   isolation: isolate;
@@ -59,6 +52,39 @@
   transform: translate(-50%, -50%);
 }
 
+/* ==========================================================================
+   5. CARRUSEL DE HEROIC PATHS
+   ========================================================================== */
+/* Marco de la imagen: contexto de apilamiento para el difuminado */
+.heroic-carousel-image-frame {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Difuminado de los bordes de la imagen del carrusel */
+.heroic-carousel-image-frame::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  content: '';
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  mask-image: radial-gradient(ellipse 60% 90% at center, transparent 56%, #000 100%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 90% at center, transparent 56%, #000 100%);
+  pointer-events: none;
+}
+
+/* Máscara radial que funde la imagen con el fondo */
+.heroic-carousel-image {
+  display: block;
+  mask-image: radial-gradient(ellipse 50% 80% at center, #000 0 52%, rgb(0 0 0 / 35%) 70%, transparent 88%);
+  -webkit-mask-image: radial-gradient(ellipse 50% 80% at center, #000 0 52%, rgb(0 0 0 / 35%) 70%, transparent 88%);
+}
+
+/* ==========================================================================
+   6. FONDO DE ESTRELLAS
+   ========================================================================== */
+/* 6.1 Capa base: campo de estrellas pequeñas */
 .starfield-background {
   background-image:
     radial-gradient(circle at 4% 12%, rgb(255 255 255 / 78%) 0 1px, transparent 1.7px),
@@ -113,6 +139,7 @@
     radial-gradient(circle at 99% 53%, rgb(255 255 255 / 70%) 0 1px, transparent 1.8px);
 }
 
+/* 6.2 Capas superpuestas: propiedades comunes de los pseudo-elementos */
 .starfield-background::before,
 .starfield-background::after {
   position: absolute;
@@ -121,6 +148,7 @@
   pointer-events: none;
 }
 
+/* 6.3 Estrellas grandes y brillantes con halo */
 .starfield-background::before {
   background-image:
     radial-gradient(circle at 18% 27%, rgb(255 255 255 / 96%) 0 2px, rgb(186 230 253 / 42%) 3px, transparent 7px),
@@ -132,6 +160,7 @@
   filter: blur(0.2px);
 }
 
+/* 6.4 Constelaciones y grupos de estrellas */
 .starfield-background::after {
   background-image:
     radial-gradient(circle at 15% 25%, rgb(255 255 255 / 78%) 0 0.7px, transparent 1.4px),
@@ -163,31 +192,33 @@
     radial-gradient(circle at 96% 47%, rgb(255 255 255 / 62%) 0 0.6px, transparent 1.2px);
 }
 
-/* Custom dark scrollbar */
+/* ==========================================================================
+   7. BARRA DE DESPLAZAMIENTO
+   ========================================================================== */
+/* Scrollbar personalizada (solo navegadores WebKit) */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: rgba(15, 23, 42, 0.6);
 }
+
 ::-webkit-scrollbar-thumb {
   background: rgba(51, 65, 85, 0.8);
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(100, 116, 139, 0.9);
 }
 
-@keyframes pulseGlow {
-  0%, 100% {
-    filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.7));
-  }
-  50% {
-    filter: drop-shadow(0 0 14px rgba(56, 189, 248, 0.95));
-  }
-}
+/* ==========================================================================
+   8. ANIMACIONES
+   ========================================================================== */
 
+/* 8.2 Pulso verde: talento disponible */
 @keyframes greenPulse {
   0%, 100% {
     box-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
@@ -195,10 +226,6 @@
   50% {
     box-shadow: 0 0 16px rgba(34, 197, 94, 0.8);
   }
-}
-
-.glow-active {
-  animation: pulseGlow 3s ease-in-out infinite;
 }
 
 .glow-available {
