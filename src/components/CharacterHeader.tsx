@@ -1,5 +1,5 @@
 import React from 'react';
-import { PathCategory } from '../types/talent';
+import { TreeSection } from '../types/talent';
 import { Sparkles, Download, RotateCcw, Search, User, Shield } from 'lucide-react';
 
 interface CharacterHeaderProps {
@@ -11,8 +11,8 @@ interface CharacterHeaderProps {
   spentPoints: number;
   remainingPoints: number;
   freeSurgesChosen: string[];
-  activeCategory: PathCategory | 'all';
-  onCategoryChange: (category: PathCategory | 'all') => void;
+  activeSection: TreeSection;
+  onSectionChange: (section: TreeSection) => void;
   onOpenSheet: () => void;
   onReset: () => void;
   onOpenSearch: () => void;
@@ -28,8 +28,8 @@ export const CharacterHeader: React.FC<CharacterHeaderProps> = ({
   spentPoints,
   remainingPoints,
   freeSurgesChosen,
-  activeCategory,
-  onCategoryChange,
+  activeSection,
+  onSectionChange,
   onOpenSheet,
   onReset,
   onOpenSearch,
@@ -175,22 +175,17 @@ export const CharacterHeader: React.FC<CharacterHeaderProps> = ({
         {/* Navigation Tabs */}
         <div className="flex items-center gap-1 overflow-x-auto py-0.5">
           {[
-            { id: 'all', label: 'Todo el Árbol' },
-            { id: 'heroic', label: 'Heroic Paths' },
-            { id: 'radiant', label: 'Radiant Paths' },
-            { id: 'metallic', label: 'Metallic Arts' },
-            { id: 'awakening', label: 'Awakening' },
-            { id: 'sand', label: 'Sand Mastery' },
-            { id: 'dor', label: 'The Dor' },
+            { id: 'heroic', label: 'HEROIC PATHS' },
+            { id: 'investiture', label: 'INVESTITURE PATHS' },
           ].map((tab) => (
             <button
               key={tab.id}
               type="button"
-              onClick={() => onCategoryChange(tab.id as PathCategory | 'all')}
-              className={`rounded-lg px-2.5 py-1 text-xs font-medium whitespace-nowrap transition-colors cursor-pointer ${
-                activeCategory === tab.id
-                  ? 'bg-sky-600/30 border border-sky-500/50 text-sky-200'
-                  : 'text-slate-400 hover:bg-slate-900 hover:text-slate-200'
+              onClick={() => onSectionChange(tab.id as TreeSection)}
+              className={`rounded-lg border px-4 py-1.5 text-xs font-bold tracking-wider whitespace-nowrap transition-colors cursor-pointer ${
+                activeSection === tab.id
+                  ? 'bg-sky-600/30 border-sky-500/50 text-sky-200'
+                  : 'border-transparent text-slate-400 hover:bg-slate-900 hover:text-slate-200'
               }`}
             >
               {tab.label}

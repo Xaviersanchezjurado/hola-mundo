@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import confetti from 'canvas-confetti';
-import { PathCategory, NodeStatus } from './types/talent';
+import { NodeStatus, TreeSection } from './types/talent';
 import {
   ALL_TALENTS,
   TALENTS_BY_ID,
@@ -72,7 +72,7 @@ export default function App() {
   });
 
   // Active Category Filter
-  const [activeCategory, setActiveCategory] = useState<PathCategory | 'all'>('all');
+  const [activeSection, setActiveSection] = useState<TreeSection>('heroic');
 
   // UI Interactive States
   const [hoveredTalentId, setHoveredTalentId] = useState<string | null>(null);
@@ -381,19 +381,19 @@ export default function App() {
         spentPoints={spentPoints}
         remainingPoints={remainingPoints}
         freeSurgesChosen={freeSurgesChosen}
-        activeCategory={activeCategory}
-        onCategoryChange={setActiveCategory}
+        activeSection={activeSection}
+        onSectionChange={setActiveSection}
         onOpenSheet={() => setIsSheetModalOpen(true)}
         onReset={() => setIsResetConfirmOpen(true)}
         onOpenSearch={() => setIsSearchModalOpen(true)}
-        onCenterView={() => setActiveCategory('all')}
+        onCenterView={() => setActiveSection('heroic')}
       />
 
       {/* Main Interactive Canvas */}
       <div className="relative flex-1 w-full h-full overflow-hidden">
         <PoEStyleTreeCanvas
           selectedTalents={selectedTalents}
-          activeCategory={activeCategory}
+          activeSection={activeSection}
           getNodeStatus={getNodeStatus}
           hoveredTalentId={hoveredTalentId}
           onHoverTalent={(id, pos) => {
@@ -486,6 +486,10 @@ export default function App() {
         isOpen={isSearchModalOpen}
         onClose={() => setIsSearchModalOpen(false)}
         onSelectTalent={(id) => {
+          const talent = TALENTS_BY_ID[id];
+          if (talent) {
+            setActiveSection(talent.category === 'heroic' ? 'heroic' : 'investiture');
+          }
           setSearchHighlightId(id);
           setInspectTalentId(id);
         }}

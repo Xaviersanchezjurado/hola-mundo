@@ -1,11 +1,11 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
-import { TalentNode, NodeStatus, PathCategory } from '../types/talent';
+import { TalentNode, NodeStatus, TreeSection } from '../types/talent';
 import { ALL_TALENTS, TALENTS_BY_ID, getTreeConnections, ConnectionLink } from '../data/talents';
 import { ZoomIn, ZoomOut, Maximize2, Compass, Layers, Sparkles } from 'lucide-react';
 
 interface PoEStyleTreeCanvasProps {
   selectedTalents: string[];
-  activeCategory: PathCategory | 'all';
+  activeSection: TreeSection;
   getNodeStatus: (id: string) => NodeStatus;
   hoveredTalentId: string | null;
   onHoverTalent: (talentId: string | null, clientPos?: { x: number; y: number }) => void;
@@ -15,7 +15,7 @@ interface PoEStyleTreeCanvasProps {
 
 export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
   selectedTalents,
-  activeCategory,
+  activeSection,
   getNodeStatus,
   hoveredTalentId,
   onHoverTalent,
@@ -24,6 +24,19 @@ export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const connections = useRef<ConnectionLink[]>(getTreeConnections()).current;
+  const visibleTalents = ALL_TALENTS.filter((talent) =>
+    activeSection === 'heroic' ? talent.category === 'heroic' : talent.category !== 'heroic'
+  );
+  const visibleTalentIds = new Set(visibleTalents.map((talent) => talent.id));
+  const visibleBounds = visibleTalents.reduce(
+    (bounds, talent) => ({
+      minX: Math.min(bounds.minX, talent.x),
+      maxX: Math.max(bounds.maxX, talent.x),
+      minY: Math.min(bounds.minY, talent.y),
+      maxY: Math.max(bounds.maxY, talent.y),
+    }),
+    { minX: Infinity, maxX: -Infinity, minY: Infinity, maxY: -Infinity }
+  );
 
   // Transform state: translate and scale
   // Tree coordinate space is 5400 x 4200, center is around (2400, 2200)
@@ -36,48 +49,34 @@ export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
   const isDragging = useRef(false);
   const dragStart = useRef({ x: 0, y: 0 });
 
-  // Center initial view on Heroic Paths center (2400, 2100)
+  // Center and fit the currently selected tree section.
   const centerView = useCallback(() => {
     if (!containerRef.current) return;
     const { clientWidth, clientHeight } = containerRef.current;
-    const targetX = 2400;
-    const targetY = 2100;
-    const targetScale = clientWidth < 768 ? 0.35 : 0.55;
+    const targetX = (visibleBounds.minX + visibleBounds.maxX) / 2;
+    const targetY = (visibleBounds.minY + visibleBounds.maxY) / 2;
+    const boundsWidth = visibleBounds.maxX - visibleBounds.minX + 360;
+    const boundsHeight = visibleBounds.maxY - visibleBounds.minY + 280;
+    const fitScale = Math.min(
+      0.7,
+      (clientWidth - 80) / boundsWidth,
+      (clientHeight - 80) / boundsHeight
+    );
+    const targetScale = activeSection === 'heroic'
+      ? clientWidth < 768 ? 0.35 : 0.55
+      : Math.max(0.18, fitScale);
     setTransform({
       x: clientWidth / 2 - targetX * targetScale,
       y: clientHeight / 2 - targetY * targetScale,
       scale: targetScale,
     });
-  }, []);
+  }, [activeSection, visibleBounds.maxX, visibleBounds.maxY, visibleBounds.minX, visibleBounds.minY]);
 
   useEffect(() => {
     centerView();
     window.addEventListener('resize', centerView);
     return () => window.removeEventListener('resize', centerView);
   }, [centerView]);
-
-  // Jump to specific category coordinates when activeCategory changes
-  useEffect(() => {
-    if (!containerRef.current || activeCategory === 'all') return;
-    const { clientWidth, clientHeight } = containerRef.current;
-    const targetScale = clientWidth < 768 ? 0.45 : 0.65;
-    const coords: Record<PathCategory, { x: number; y: number }> = {
-      heroic: { x: 2400, y: 2100 },
-      radiant: { x: 4200, y: 1100 },
-      metallic: { x: 3000, y: 3400 },
-      awakening: { x: 1200, y: 3500 },
-      sand: { x: 800, y: 2500 },
-      dor: { x: 1100, y: 1100 },
-    };
-    const c = coords[activeCategory];
-    if (c) {
-      setTransform({
-        x: clientWidth / 2 - c.x * targetScale,
-        y: clientHeight / 2 - c.y * targetScale,
-        scale: targetScale,
-      });
-    }
-  }, [activeCategory]);
 
   // Jump to search highlighted talent
   useEffect(() => {
@@ -247,7 +246,7 @@ export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
         </defs>
 
         {/* Central Cosmere Decorative Rings & Runes */}
-        <g opacity="0.25">
+        {activeSection === 'heroic' && <g opacity="0.25">
           <circle cx="2400" cy="2100" r="180" fill="none" stroke="#38bdf8" strokeWidth="2" strokeDasharray="6 6" />
           <circle cx="2400" cy="2100" r="320" fill="none" stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="4 8" />
           <circle cx="2400" cy="2100" r="480" fill="none" stroke="#38bdf8" strokeWidth="1" strokeDasharray="2 12" />
@@ -266,11 +265,12 @@ export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
               strokeDasharray="4 20"
             />
           ))}
-        </g>
+        </g>}
 
         {/* Constellation Lines / Branches */}
         <g id="tree-connections">
           {connections.map((link, idx) => {
+            if (!visibleTalentIds.has(link.fromId) || !visibleTalentIds.has(link.toId)) return null;
             const from = TALENTS_BY_ID[link.fromId];
             const to = TALENTS_BY_ID[link.toId];
             if (!from || !to) return null;
@@ -345,17 +345,13 @@ export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
           transformOrigin: '0 0',
         }}
       >
-        {ALL_TALENTS.map((talent) => {
+        {visibleTalents.map((talent) => {
           const status = getNodeStatus(talent.id);
           const isSelected = status === 'acquired';
           const isAvailable = status === 'available';
           const isLocked = status === 'locked';
           const isHovered = hoveredTalentId === talent.id;
           const isHighlighted = searchHighlightId === talent.id;
-
-          // Category Dimming if category filter active
-          const isCategoryMatch = activeCategory === 'all' || talent.category === activeCategory;
-          const categoryOpacity = isCategoryMatch ? 1 : 0.25;
 
           // Rectangle Width and Height based on name length
           const rectWidth = talent.isKeyTalent ? 130 : 110;
@@ -399,7 +395,6 @@ export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
                 top: talent.y - rectHeight / 2,
                 width: rectWidth,
                 height: rectHeight,
-                opacity: categoryOpacity,
                 transform: isHovered ? 'scale(1.08)' : 'scale(1)',
                 zIndex: isSelected ? 20 : isAvailable ? 15 : 10,
               }}
@@ -454,47 +449,17 @@ export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
           type="button"
           onClick={centerView}
           className="rounded-lg p-2 text-slate-400 hover:bg-slate-800 hover:text-white transition-colors cursor-pointer"
-          title="Centrar vista en Heroic Paths"
+          title={`Centrar vista en ${activeSection === 'heroic' ? 'Heroic' : 'Investiture'} Paths`}
         >
           <Maximize2 className="h-4 w-4" />
         </button>
-      </div>
-
-      {/* Quick Sector Navigator Mini-Pills (bottom center) */}
-      <div className="hidden md:flex absolute bottom-4 left-1/2 -translate-x-1/2 z-20 items-center gap-1 rounded-xl border border-slate-800 bg-slate-950/85 p-1 backdrop-blur-md shadow-2xl text-[11px]">
-        {[
-          { label: 'Heroic', x: 2400, y: 2100 },
-          { label: 'Radiant', x: 4200, y: 1100 },
-          { label: 'Metallic Arts', x: 3000, y: 3400 },
-          { label: 'Awakening', x: 1200, y: 3500 },
-          { label: 'Sand Mastery', x: 800, y: 2500 },
-          { label: 'The Dor', x: 1100, y: 1100 },
-        ].map((s) => (
-          <button
-            key={s.label}
-            type="button"
-            onClick={() => {
-              if (!containerRef.current) return;
-              const { clientWidth, clientHeight } = containerRef.current;
-              const sScale = 0.65;
-              setTransform({
-                x: clientWidth / 2 - s.x * sScale,
-                y: clientHeight / 2 - s.y * sScale,
-                scale: sScale,
-              });
-            }}
-            className="rounded-lg px-2.5 py-1 font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition-colors cursor-pointer"
-          >
-            {s.label}
-          </button>
-        ))}
       </div>
 
       {/* Mini-Map Indicator (bottom right) */}
       <div className="hidden lg:block absolute bottom-4 right-4 z-20 w-44 h-32 rounded-xl border border-slate-800 bg-slate-950/90 p-1.5 backdrop-blur-md shadow-2xl overflow-hidden pointer-events-none">
         <div className="relative w-full h-full rounded border border-slate-800/80 bg-slate-900/60">
           {/* Mini points */}
-          {ALL_TALENTS.map((t) => {
+          {visibleTalents.map((t) => {
             const mx = (t.x / 5400) * 100;
             const my = (t.y / 4400) * 100;
             const status = getNodeStatus(t.id);

@@ -6,6 +6,8 @@ export type PathCategory =
   | 'sand' 
   | 'dor';
 
+export type TreeSection = 'heroic' | 'investiture';
+
 export type NodeStatus = 'acquired' | 'available' | 'locked';
 
 export interface TalentNode {
