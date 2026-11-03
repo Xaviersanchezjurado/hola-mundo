@@ -49,7 +49,7 @@ export const CharacterHeader: React.FC<CharacterHeaderProps> = ({
             className="flex items-center gap-2 text-left group cursor-pointer"
             title="Centrar árbol de habilidades"
           >
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-indigo-600 shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-linear-to-br from-sky-500 to-indigo-600 shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform">
               <Sparkles className="h-5 w-5 text-white" />
             </div>
             <div>
@@ -148,7 +148,7 @@ export const CharacterHeader: React.FC<CharacterHeaderProps> = ({
             onClick={onOpenSheet}
             className={`flex items-center gap-1.5 rounded-xl px-3 py-2 text-xs font-semibold shadow-md transition-all cursor-pointer ${
               isAllPointsSpent
-                ? 'bg-gradient-to-r from-blue-600 to-sky-500 text-white shadow-blue-500/25 ring-2 ring-sky-400/50 hover:brightness-110'
+                ? 'bg-linear-to-r from-blue-600 to-sky-500 text-white shadow-blue-500/25 ring-2 ring-sky-400/50 hover:brightness-110'
                 : 'border border-slate-700 bg-slate-900 text-slate-200 hover:border-sky-500/60 hover:text-white'
             }`}
             title="Ver y descargar ficha de personaje con talentos"

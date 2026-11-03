@@ -209,7 +209,7 @@ export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
       className="relative h-full w-full overflow-hidden bg-radial from-slate-900 via-slate-950 to-black cursor-grab active:cursor-grabbing select-none"
     >
       {/* Background Constellation Dust & Grid */}
-      <div className="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:32px_32px]" />
+      <div className="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] bg-size-[32px_32px]" />
 
       {/* Main SVG Tree World */}
       <svg
@@ -418,7 +418,7 @@ export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
                 >
                   {talent.code || '·'}
                 </span>
-                <span className="text-[9px] uppercase tracking-wider opacity-70 truncate max-w-[70px]">
+                <span className="text-[9px] uppercase tracking-wider opacity-70 truncate max-w-17.5">
                   {talent.specialty || talent.pathName}
                 </span>
               </div>

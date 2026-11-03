@@ -126,7 +126,7 @@ export const CharacterSheetModal: React.FC<CharacterSheetModalProps> = ({
         {/* Modal Top Bar */}
         <div className="flex items-center justify-between border-b border-slate-800 px-6 py-4 bg-slate-950/70">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-blue-600 shadow-md shadow-sky-500/20">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-sky-500 to-blue-600 shadow-md shadow-sky-500/20">
               <FileText className="h-5 w-5 text-white" />
             </div>
             <div>
@@ -201,7 +201,7 @@ export const CharacterSheetModal: React.FC<CharacterSheetModalProps> = ({
         {/* Printable & Scrollable Sheet Content */}
         <div id="printable-character-sheet" className="flex-1 overflow-y-auto p-6 space-y-6">
           {/* Character Header Card */}
-          <div className="rounded-xl border border-sky-500/30 bg-gradient-to-r from-sky-950/40 to-slate-900/60 p-5">
+          <div className="rounded-xl border border-sky-500/30 bg-linear-to-r from-sky-950/40 to-slate-900/60 p-5">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div>
                 <span className="text-[11px] font-semibold uppercase tracking-wider text-sky-400">
