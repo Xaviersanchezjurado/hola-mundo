@@ -1,7 +1,57 @@
-import React, { useRef, useState, useEffect, useCallback } from 'react';
+import React, { useRef, useState, useEffect, useCallback, useMemo } from 'react';
 import { TalentNode, NodeStatus, TreeSection } from '../types/talent';
 import { ALL_TALENTS, TALENTS_BY_ID, getTreeConnections, ConnectionLink } from '../data/talents';
 import { ZoomIn, ZoomOut, Maximize2, Compass, Layers, Sparkles } from 'lucide-react';
+
+const HEROIC_KEY_ROW_Y = 3400;
+const HEROIC_FIRST_KEY_X = 450;
+const HEROIC_KEY_SPACING = 890;
+const HEROIC_BRANCH_COLUMN_SPACING = 125;
+const HEROIC_BRANCH_FIRST_ROW_OFFSET = 330;
+const HEROIC_BRANCH_ROW_SPACING = 240;
+
+function createHeroicLayout(): Map<string, { x: number; y: number }> {
+  const positions = new Map<string, { x: number; y: number }>();
+  const heroicTalents = ALL_TALENTS.filter((talent) => talent.category === 'heroic');
+  const pathNames = Array.from(new Set(heroicTalents.map((talent) => talent.pathName)));
+  const branchCodeGroups = [
+    ['1', '2', '3', '4'],
+    ['a', 'b', 'c', 'd'],
+  ];
+
+  pathNames.forEach((pathName, pathIndex) => {
+    const pathTalents = heroicTalents.filter((talent) => talent.pathName === pathName);
+    const keyTalent = pathTalents.find((talent) => talent.isKeyTalent);
+    const keyX = HEROIC_FIRST_KEY_X + pathIndex * HEROIC_KEY_SPACING;
+
+    if (keyTalent) positions.set(keyTalent.id, { x: keyX, y: HEROIC_KEY_ROW_Y });
+
+    const specialties = Array.from(
+      new Set(pathTalents.filter((talent) => !talent.isKeyTalent).map((talent) => talent.specialty))
+    );
+
+    specialties.forEach((specialty, specialtyIndex) => {
+      branchCodeGroups.forEach((codes, branchIndex) => {
+        const columnIndex = specialtyIndex * branchCodeGroups.length + branchIndex;
+        const x = keyX + (columnIndex - 2.5) * HEROIC_BRANCH_COLUMN_SPACING;
+
+        codes.forEach((code, rankIndex) => {
+          const talent = pathTalents.find(
+            (candidate) => candidate.specialty === specialty && candidate.code === code
+          );
+          if (!talent) return;
+
+          positions.set(talent.id, {
+            x,
+            y: HEROIC_KEY_ROW_Y - HEROIC_BRANCH_FIRST_ROW_OFFSET - rankIndex * HEROIC_BRANCH_ROW_SPACING,
+          });
+        });
+      });
+    });
+  });
+
+  return positions;
+}
 
 interface PoEStyleTreeCanvasProps {
   selectedTalents: string[];
@@ -24,17 +74,22 @@ export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const connections = useRef<ConnectionLink[]>(getTreeConnections()).current;
+  const heroicLayout = useMemo(createHeroicLayout, []);
+  const getTalentPosition = (talent: TalentNode) => heroicLayout.get(talent.id) ?? talent;
   const visibleTalents = ALL_TALENTS.filter((talent) =>
     activeSection === 'heroic' ? talent.category === 'heroic' : talent.category !== 'heroic'
   );
   const visibleTalentIds = new Set(visibleTalents.map((talent) => talent.id));
   const visibleBounds = visibleTalents.reduce(
-    (bounds, talent) => ({
-      minX: Math.min(bounds.minX, talent.x),
-      maxX: Math.max(bounds.maxX, talent.x),
-      minY: Math.min(bounds.minY, talent.y),
-      maxY: Math.max(bounds.maxY, talent.y),
-    }),
+    (bounds, talent) => {
+      const position = getTalentPosition(talent);
+      return {
+        minX: Math.min(bounds.minX, position.x),
+        maxX: Math.max(bounds.maxX, position.x),
+        minY: Math.min(bounds.minY, position.y),
+        maxY: Math.max(bounds.maxY, position.y),
+      };
+    },
     { minX: Infinity, maxX: -Infinity, minY: Infinity, maxY: -Infinity }
   );
 
@@ -62,9 +117,7 @@ export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
       (clientWidth - 80) / boundsWidth,
       (clientHeight - 80) / boundsHeight
     );
-    const targetScale = activeSection === 'heroic'
-      ? clientWidth < 768 ? 0.35 : 0.55
-      : Math.max(0.18, fitScale);
+    const targetScale = Math.max(0.18, fitScale);
     setTransform({
       x: clientWidth / 2 - targetX * targetScale,
       y: clientHeight / 2 - targetY * targetScale,
@@ -83,14 +136,15 @@ export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
     if (!searchHighlightId || !containerRef.current) return;
     const talent = TALENTS_BY_ID[searchHighlightId];
     if (!talent) return;
+    const position = getTalentPosition(talent);
     const { clientWidth, clientHeight } = containerRef.current;
     const targetScale = 0.85;
     setTransform({
-      x: clientWidth / 2 - talent.x * targetScale,
-      y: clientHeight / 2 - talent.y * targetScale,
+      x: clientWidth / 2 - position.x * targetScale,
+      y: clientHeight / 2 - position.y * targetScale,
       scale: targetScale,
     });
-  }, [searchHighlightId]);
+  }, [searchHighlightId, heroicLayout]);
 
   // Mouse pan handlers
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -208,7 +262,7 @@ export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
       className="relative h-full w-full overflow-hidden bg-radial from-slate-900 via-slate-950 to-black cursor-grab active:cursor-grabbing select-none"
     >
       {/* Background Constellation Dust & Grid */}
-      <div className="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] bg-size-[32px_32px]" />
+      <div className="starfield-background absolute inset-0 pointer-events-none opacity-70" />
 
       {/* Main SVG Tree World */}
       <svg
@@ -277,6 +331,8 @@ export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
 
             const fromStatus = getNodeStatus(from.id);
             const toStatus = getNodeStatus(to.id);
+            const fromPosition = getTalentPosition(from);
+            const toPosition = getTalentPosition(to);
 
             const isAcquiredLink = fromStatus === 'acquired' && toStatus === 'acquired';
             const isAvailableLink =
@@ -301,13 +357,12 @@ export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
             }
 
             // Draw curved organic branch line
-            const dx = to.x - from.x;
-            const dy = to.y - from.y;
-            const cx1 = from.x + dx * 0.4;
-            const cy1 = from.y;
-            const cx2 = from.x + dx * 0.6;
-            const cy2 = to.y;
-            const pathD = `M ${from.x} ${from.y} C ${cx1} ${cy1}, ${cx2} ${cy2}, ${to.x} ${to.y}`;
+            const dx = toPosition.x - fromPosition.x;
+            const cx1 = fromPosition.x + dx * 0.4;
+            const cy1 = fromPosition.y;
+            const cx2 = fromPosition.x + dx * 0.6;
+            const cy2 = toPosition.y;
+            const pathD = `M ${fromPosition.x} ${fromPosition.y} C ${cx1} ${cy1}, ${cx2} ${cy2}, ${toPosition.x} ${toPosition.y}`;
 
             return (
               <g key={`link-${idx}`}>
@@ -346,6 +401,7 @@ export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
         }}
       >
         {visibleTalents.map((talent) => {
+          const position = getTalentPosition(talent);
           const status = getNodeStatus(talent.id);
           const isSelected = status === 'acquired';
           const isAvailable = status === 'available';
@@ -391,8 +447,8 @@ export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
               }}
               className={`absolute pointer-events-auto rounded-lg border px-2 py-1 flex flex-col items-center justify-center text-center transition-all cursor-pointer font-sans ${styleClasses}`}
               style={{
-                left: talent.x - rectWidth / 2,
-                top: talent.y - rectHeight / 2,
+                left: position.x - rectWidth / 2,
+                top: position.y - rectHeight / 2,
                 width: rectWidth,
                 height: rectHeight,
                 transform: isHovered ? 'scale(1.08)' : 'scale(1)',
@@ -460,8 +516,9 @@ export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
         <div className="relative w-full h-full rounded border border-slate-800/80 bg-slate-900/60">
           {/* Mini points */}
           {visibleTalents.map((t) => {
-            const mx = (t.x / 5400) * 100;
-            const my = (t.y / 4400) * 100;
+            const position = getTalentPosition(t);
+            const mx = (position.x / 5400) * 100;
+            const my = (position.y / 4400) * 100;
             const status = getNodeStatus(t.id);
             const color =
               status === 'acquired' ? '#38bdf8' : status === 'available' ? '#4ade80' : '#475569';

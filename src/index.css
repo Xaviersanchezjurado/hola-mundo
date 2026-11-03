@@ -12,6 +12,130 @@
   font-family: 'Cinzel Decorative', serif;
 }
 
+.tree-tab-label-glow {
+  position: relative;
+  isolation: isolate;
+}
+
+.tree-tab-label-glow::before {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  width: calc(100% + 3rem);
+  height: 2.5rem;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgb(255 255 255 / 28%), rgb(255 255 255 / 12%) 38%, transparent 74%);
+  content: '';
+  filter: blur(9px);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.starfield-background {
+  background-image:
+    radial-gradient(circle at 4% 12%, rgb(255 255 255 / 78%) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 11% 71%, rgb(186 230 253 / 68%) 0 1.4px, transparent 2.2px),
+    radial-gradient(circle at 18% 24%, rgb(255 255 255 / 54%) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 22% 82%, rgb(255 255 255 / 82%) 0 1.2px, transparent 2px),
+    radial-gradient(circle at 29% 45%, rgb(125 211 252 / 64%) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 34% 9%, rgb(255 255 255 / 58%) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 39% 64%, rgb(255 255 255 / 76%) 0 1.1px, transparent 1.9px),
+    radial-gradient(circle at 45% 31%, rgb(186 230 253 / 54%) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 52% 91%, rgb(255 255 255 / 68%) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 57% 17%, rgb(255 255 255 / 84%) 0 1.5px, transparent 2.4px),
+    radial-gradient(circle at 63% 56%, rgb(125 211 252 / 62%) 0 0.9px, transparent 1.7px),
+    radial-gradient(circle at 69% 7%, rgb(255 255 255 / 58%) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 74% 78%, rgb(255 255 255 / 80%) 0 1.2px, transparent 2px),
+    radial-gradient(circle at 81% 36%, rgb(186 230 253 / 66%) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 87% 88%, rgb(255 255 255 / 62%) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 94% 19%, rgb(255 255 255 / 86%) 0 1.4px, transparent 2.2px),
+    radial-gradient(circle at 8% 43%, rgb(125 211 252 / 48%) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 16% 94%, rgb(255 255 255 / 58%) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 26% 6%, rgb(255 255 255 / 72%) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 32% 73%, rgb(186 230 253 / 58%) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 43% 52%, rgb(255 255 255 / 62%) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 49% 11%, rgb(255 255 255 / 76%) 0 1.1px, transparent 1.9px),
+    radial-gradient(circle at 61% 84%, rgb(255 255 255 / 56%) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 67% 29%, rgb(186 230 253 / 72%) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 77% 51%, rgb(255 255 255 / 60%) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 84% 11%, rgb(255 255 255 / 74%) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 91% 63%, rgb(125 211 252 / 58%) 0 0.9px, transparent 1.7px),
+    radial-gradient(circle at 97% 96%, rgb(255 255 255 / 70%) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 14% 34%, rgb(255 255 255 / 34%) 0 0.6px, transparent 1.2px),
+    radial-gradient(circle at 24% 58%, rgb(255 255 255 / 38%) 0 0.6px, transparent 1.2px),
+    radial-gradient(circle at 37% 88%, rgb(255 255 255 / 36%) 0 0.6px, transparent 1.2px),
+    radial-gradient(circle at 54% 43%, rgb(255 255 255 / 40%) 0 0.6px, transparent 1.2px),
+    radial-gradient(circle at 72% 23%, rgb(255 255 255 / 36%) 0 0.6px, transparent 1.2px),
+    radial-gradient(circle at 89% 45%, rgb(255 255 255 / 38%) 0 0.6px, transparent 1.2px),
+    radial-gradient(circle at 2% 57%, rgb(255 255 255 / 62%) 0 0.9px, transparent 1.7px),
+    radial-gradient(circle at 6% 88%, rgb(186 230 253 / 52%) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 13% 8%, rgb(255 255 255 / 72%) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 19% 49%, rgb(255 255 255 / 42%) 0 0.7px, transparent 1.4px),
+    radial-gradient(circle at 27% 91%, rgb(125 211 252 / 55%) 0 0.9px, transparent 1.7px),
+    radial-gradient(circle at 35% 36%, rgb(255 255 255 / 68%) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 41% 77%, rgb(255 255 255 / 48%) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 47% 4%, rgb(186 230 253 / 60%) 0 0.9px, transparent 1.7px),
+    radial-gradient(circle at 55% 69%, rgb(255 255 255 / 72%) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 60% 34%, rgb(255 255 255 / 46%) 0 0.7px, transparent 1.4px),
+    radial-gradient(circle at 66% 96%, rgb(186 230 253 / 58%) 0 0.9px, transparent 1.7px),
+    radial-gradient(circle at 71% 44%, rgb(255 255 255 / 72%) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 79% 5%, rgb(255 255 255 / 46%) 0 0.7px, transparent 1.4px),
+    radial-gradient(circle at 85% 71%, rgb(186 230 253 / 62%) 0 0.9px, transparent 1.7px),
+    radial-gradient(circle at 93% 39%, rgb(255 255 255 / 58%) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 99% 53%, rgb(255 255 255 / 70%) 0 1px, transparent 1.8px);
+}
+
+.starfield-background::before,
+.starfield-background::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  pointer-events: none;
+}
+
+.starfield-background::before {
+  background-image:
+    radial-gradient(circle at 18% 27%, rgb(255 255 255 / 96%) 0 2px, rgb(186 230 253 / 42%) 3px, transparent 7px),
+    radial-gradient(circle at 43% 68%, rgb(255 255 255 / 94%) 0 2.2px, rgb(125 211 252 / 40%) 3.2px, transparent 7px),
+    radial-gradient(circle at 72% 34%, rgb(255 255 255 / 92%) 0 2.4px, rgb(186 230 253 / 42%) 3.4px, transparent 8px),
+    radial-gradient(circle at 91% 81%, rgb(255 255 255 / 92%) 0 1.9px, rgb(125 211 252 / 40%) 3px, transparent 7px),
+    radial-gradient(circle at 7% 76%, rgb(186 230 253 / 90%) 0 1.7px, rgb(56 189 248 / 38%) 2.8px, transparent 6px),
+    radial-gradient(circle at 58% 12%, rgb(255 255 255 / 88%) 0 1.8px, rgb(186 230 253 / 36%) 2.8px, transparent 6px);
+  filter: blur(0.2px);
+}
+
+.starfield-background::after {
+  background-image:
+    radial-gradient(circle at 15% 25%, rgb(255 255 255 / 78%) 0 0.7px, transparent 1.4px),
+    radial-gradient(circle at 16.2% 26.1%, rgb(186 230 253 / 66%) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 17.5% 24.2%, rgb(255 255 255 / 72%) 0 0.6px, transparent 1.3px),
+    radial-gradient(circle at 19.1% 27.5%, rgb(255 255 255 / 62%) 0 0.7px, transparent 1.4px),
+    radial-gradient(circle at 31% 52%, rgb(255 255 255 / 76%) 0 0.7px, transparent 1.4px),
+    radial-gradient(circle at 32.1% 50.8%, rgb(186 230 253 / 66%) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 33.4% 52.3%, rgb(255 255 255 / 72%) 0 0.6px, transparent 1.3px),
+    radial-gradient(circle at 34.5% 49.9%, rgb(255 255 255 / 62%) 0 0.7px, transparent 1.4px),
+    radial-gradient(circle at 52% 29%, rgb(255 255 255 / 78%) 0 0.7px, transparent 1.4px),
+    radial-gradient(circle at 53.1% 30.4%, rgb(186 230 253 / 66%) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 54.2% 28.6%, rgb(255 255 255 / 72%) 0 0.6px, transparent 1.3px),
+    radial-gradient(circle at 55.3% 31.5%, rgb(255 255 255 / 62%) 0 0.7px, transparent 1.4px),
+    radial-gradient(circle at 79% 69%, rgb(255 255 255 / 78%) 0 0.7px, transparent 1.4px),
+    radial-gradient(circle at 80.2% 67.8%, rgb(186 230 253 / 66%) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 81.1% 70%, rgb(255 255 255 / 72%) 0 0.6px, transparent 1.3px),
+    radial-gradient(circle at 82.4% 68.4%, rgb(255 255 255 / 62%) 0 0.7px, transparent 1.4px),
+    radial-gradient(circle at 91% 20%, rgb(255 255 255 / 78%) 0 0.7px, transparent 1.4px),
+    radial-gradient(circle at 92.2% 21.3%, rgb(186 230 253 / 66%) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 93.5% 19.4%, rgb(255 255 255 / 72%) 0 0.6px, transparent 1.3px),
+    radial-gradient(circle at 94.7% 22.1%, rgb(255 255 255 / 62%) 0 0.7px, transparent 1.4px),
+    radial-gradient(circle at 5% 18%, rgb(255 255 255 / 66%) 0 0.6px, transparent 1.2px),
+    radial-gradient(circle at 8% 20%, rgb(186 230 253 / 58%) 0 0.6px, transparent 1.2px),
+    radial-gradient(circle at 24% 15%, rgb(255 255 255 / 58%) 0 0.6px, transparent 1.2px),
+    radial-gradient(circle at 39% 18%, rgb(255 255 255 / 60%) 0 0.6px, transparent 1.2px),
+    radial-gradient(circle at 66% 72%, rgb(255 255 255 / 58%) 0 0.6px, transparent 1.2px),
+    radial-gradient(circle at 74% 87%, rgb(186 230 253 / 56%) 0 0.6px, transparent 1.2px),
+    radial-gradient(circle at 96% 47%, rgb(255 255 255 / 62%) 0 0.6px, transparent 1.2px);
+}
+
 /* Custom dark scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
