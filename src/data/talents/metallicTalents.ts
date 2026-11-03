@@ -4,8 +4,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   // ===================== MISTBORN =====================
   {
     id: 'mistborn_key',
-    name: 'Snapping (key talent)',
-    shortName: 'Snapping',
+    name: 'Snapping',
     code: 'key',
     description: 'You gain access to Investiture. You begin with a total Investiture of your Constitution modifier + your Proficiency Bonus. You obtain 1 Allomancy ability without spending any point. You can hold a number of Metal Vials equal to (1 + your Proficiency Bonus) per long rest. You can use the Drink Vial action. You gain Preservation.\n\nDrink Vial: Action. You can absorb 5 points of Investiture from a Metal Vial that is 5 ft of you.\n\nPreservation: Your body resists death. Once per long rest, when you drop to 0 hit points, you can use all your Investiture to remain at 1 hit point.',
     category: 'metallic',
@@ -21,7 +20,6 @@ export const METALLIC_TALENTS: TalentNode[] = [
   {
     id: 'allo_lurcher',
     name: 'Lurcher (Iron)',
-    shortName: 'Lurcher (Iron)',
     code: 'metal',
     description: 'Action. Range 60 ft. 1 Investiture. You can burn iron. When burning iron, you can detect nearby metals and pull them in a straight line to you. Hitting creatures with Iron will deal 1d6 bludgeoning damage. If the object is heavier than you, you will move towards the metal.\nFlared: 2 Investiture. Range increases by +60 ft, damage increases by +1d6.',
     category: 'metallic',
@@ -35,7 +33,6 @@ export const METALLIC_TALENTS: TalentNode[] = [
   {
     id: 'allo_coinshot',
     name: 'Coinshot (Steel)',
-    shortName: 'Coinshot (Steel)',
     code: 'metal',
     description: 'Action. Range 60 ft. 1 Investiture. You can burn steel. When burning steel, you can push nearby metals in a straight line from you. Hitting creatures with Steel will deal 1d6 bludgeoning damage. If the object is heavier than you, you will move away from the metal.\nFlared: 2 Investiture. Range increases by +60 ft, damage increases by +1d6.',
     category: 'metallic',
@@ -49,7 +46,6 @@ export const METALLIC_TALENTS: TalentNode[] = [
   {
     id: 'allo_tineye',
     name: 'Tineye (Tin)',
-    shortName: 'Tineye (Tin)',
     code: 'metal',
     description: 'Action. Self. Concentration. 1 Investiture per minute. You can burn tin. When burning tin, you gain Advantage on Perception checks and 60 ft of darkvision.\nFlared: 1 Investiture per round. Range increases by +60 ft. You gain +20 ft of blindsight.',
     category: 'metallic',
@@ -63,7 +59,6 @@ export const METALLIC_TALENTS: TalentNode[] = [
   {
     id: 'allo_thug',
     name: 'Thug (Pewter)',
-    shortName: 'Thug (Pewter)',
     code: 'metal',
     description: 'Action. Self. Concentration. 1 Investiture per round. You can burn pewter. When burning pewter, you have Advantage on Strength checks, gain +1 AC and +1 to hit.\nFlared: 2 Investiture per round. AC increases by +1, hit roll increases by +1.',
     category: 'metallic',
@@ -77,9 +72,8 @@ export const METALLIC_TALENTS: TalentNode[] = [
   {
     id: 'allo_rioter',
     name: 'Rioter (Zinc)',
-    shortName: 'Rioter (Zinc)',
     code: 'metal',
-    description: 'Action. 30 ft . 3 Investiture. You can burn zinc. When burning zinc, you can attempt to riot the emotions of 1 creature for up to 1 minute. On a failed DC (10 + your Proficiency Bonus) Charisma saving throw, you can augment one of the target’s emotions. When the spell ends, the creature knows that it has been enchanted on a successful Insight check.\nFlared: 5 Investiture. Range increases by +30 ft, number of creatures targeted increases by +1, duration increases by +5 minutes.',
+    description: 'Action. 30 ft . 3 Investiture. You can burn zinc. When burning zinc, you can attempt to riot the emotions of 1 creature for up to 1 minute. On a failed DC (10 + your Proficiency Bonus) Charisma saving throw, you can augment one of the targetâ€™s emotions. When the spell ends, the creature knows that it has been enchanted on a successful Insight check.\nFlared: 5 Investiture. Range increases by +30 ft, number of creatures targeted increases by +1, duration increases by +5 minutes.',
     category: 'metallic',
     pathName: 'Mistborn',
     specialty: 'Allomancy',
@@ -91,9 +85,8 @@ export const METALLIC_TALENTS: TalentNode[] = [
   {
     id: 'allo_soother',
     name: 'Soother (Brass)',
-    shortName: 'Soother (Brass)',
     code: 'metal',
-    description: 'Action. 30 ft. 3 Investiture. You can burn brass. When burning brass, you can attempt to soothe the emotions of 1 creature for up to 1 minute. On a failed DC (10 + your Proficiency Bonus) Charisma saving throw, you can decrease one of the target’s emotions. When the spell ends, the creature knows that it has been enchanted on a successful Insight check.\nFlared: 5 Investiture. Range increases by +30 ft, number of creatures targeted increases by +1, duration increases by +5 minutes.',
+    description: 'Action. 30 ft. 3 Investiture. You can burn brass. When burning brass, you can attempt to soothe the emotions of 1 creature for up to 1 minute. On a failed DC (10 + your Proficiency Bonus) Charisma saving throw, you can decrease one of the targetâ€™s emotions. When the spell ends, the creature knows that it has been enchanted on a successful Insight check.\nFlared: 5 Investiture. Range increases by +30 ft, number of creatures targeted increases by +1, duration increases by +5 minutes.',
     category: 'metallic',
     pathName: 'Mistborn',
     specialty: 'Allomancy',
@@ -105,7 +98,6 @@ export const METALLIC_TALENTS: TalentNode[] = [
   {
     id: 'allo_smoker',
     name: 'Smoker (Copper)',
-    shortName: 'Smoker (Copper)',
     code: 'metal',
     description: 'Action. Self. Concentration. 1 Investiture per minute. You can burn copper. When burning copper, you create an invisible sphere of up to 20 ft radius around you. Anyone inside gains resistance to psychic damage and has Advantage Wisdom saving throws.\nFlared: 1 Investiture per minute. Range increases by +20 ft, the caster gains immunity to psychic damage and cannot be charmed or frightened.',
     category: 'metallic',
@@ -119,7 +111,6 @@ export const METALLIC_TALENTS: TalentNode[] = [
   {
     id: 'allo_seeker',
     name: 'Seeker (Bronze)',
-    shortName: 'Seeker (Bronze)',
     code: 'metal',
     description: 'Action. Self. Concentration. 1 Investiture per minute. You can burn bronze. When burning bronze, you can sense the presence of magic within 30 ft of you and see where it originated. The spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.\nFlared: 1 Investiture per minute. Range increases by +30 ft, the spell can penetrate all barriers except aluminum and can detect the school of magic if any.',
     category: 'metallic',
@@ -133,9 +124,8 @@ export const METALLIC_TALENTS: TalentNode[] = [
   {
     id: 'allo_augur',
     name: 'Augur (Gold)',
-    shortName: 'Augur (Gold)',
     code: 'metal',
-    description: 'Action. Self. Concentration. Up to 1 minute. 3 Investiture. You can burn gold. When burning gold, you will see an “alternate version” of yourself. It gives you hidden information about yourself and you can gain 1 Inspiration on a successful Insight check.\nFlared: 6 Investiture. You have Advantage on Insight checks until a long rest.',
+    description: 'Action. Self. Concentration. Up to 1 minute. 3 Investiture. You can burn gold. When burning gold, you will see an â€œalternate versionâ€ of yourself. It gives you hidden information about yourself and you can gain 1 Inspiration on a successful Insight check.\nFlared: 6 Investiture. You have Advantage on Insight checks until a long rest.',
     category: 'metallic',
     pathName: 'Mistborn',
     specialty: 'Allomancy',
@@ -147,7 +137,6 @@ export const METALLIC_TALENTS: TalentNode[] = [
   {
     id: 'allo_oracle',
     name: 'Oracle (Electrum)',
-    shortName: 'Oracle (Electrum)',
     code: 'metal',
     description: 'Action. Self. Concentration. 2 Investiture per round. You can burn electrum. When burning electrum, you target one creature, that creature has Disadvantage on attack rolls against you.\nFlared: 4 Investiture per round. All creatures have Disadvantage on attack rolls against you.',
     category: 'metallic',
@@ -161,7 +150,6 @@ export const METALLIC_TALENTS: TalentNode[] = [
   {
     id: 'allo_pulser',
     name: 'Pulser (Cadmium)',
-    shortName: 'Pulser (Cadmium)',
     code: 'metal',
     description: 'Action. Self. Concentration. 3 Investiture per round. You can burn cadmium. When burning cadmium, you can create a 20 ft sphere from you where creatures halve their speed, have -2 AC, cannot use Reactions and can only use an Action or Bonus Action on their turn. Ranged attacks that cross the sphere are at Disadvantage.\nFlared: 5 Investiture per round. Range increases by +20 ft.',
     category: 'metallic',
@@ -175,7 +163,6 @@ export const METALLIC_TALENTS: TalentNode[] = [
   {
     id: 'allo_slider',
     name: 'Slider (Bendalloy)',
-    shortName: 'Slider (Bendalloy)',
     code: 'metal',
     description: 'Action. Self. Concentration. 4 Investiture per round. You can burn bendalloy. When burning bendalloy, you can create a 20 ft sphere from you where creatures double their speed, gain +2 AC and have one additional Action. Ranged attacks that cross the sphere are at Disadvantage.\nFlared: 6 Investiture per round. Range increases by +20 ft.',
     category: 'metallic',
@@ -188,8 +175,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'allo_nicroburst',
-    name: 'Nicroburst (Nicrosil)',
-    shortName: 'Nicroburst',
+    name: 'Nicroburst',
     code: 'metal',
     description: 'Action. Touch. 5 Investiture. You can burn nicrosil. When burning nicrosil, you can choose a creature to regain 1 use of a limited class ability or a 1st level spell slot.\nFlared: 5 + X Investiture. For each extra X you pay, the target creature regains 1 spell slot of a higher level.',
     category: 'metallic',
@@ -203,9 +189,8 @@ export const METALLIC_TALENTS: TalentNode[] = [
   {
     id: 'allo_leecher',
     name: 'Leecher (Chromium)',
-    shortName: 'Leecher (Chromium)',
     code: 'metal',
-    description: 'Reaction. Touch. 4 Investiture. You can burn chromium. When burning chromium, you can attempt to interrupt a creature in the process of casting a spell. If the creature is casting a spell of 2rd level or lower, its spell fails and has no effect. If it is casting a spell of 3th level or higher, make an ability check using your spellcasting ability. The DC equals 10 + the spell’s level. On a success, the creature’s spell fails and has no effect\nFlared: 6,8,10,etc. Investiture. Spending 6 Investiture lets you interrupt lvl 3 spells automatically, with 8 Investiture lvl 4 spells, etc.',
+    description: 'Reaction. Touch. 4 Investiture. You can burn chromium. When burning chromium, you can attempt to interrupt a creature in the process of casting a spell. If the creature is casting a spell of 2rd level or lower, its spell fails and has no effect. If it is casting a spell of 3th level or higher, make an ability check using your spellcasting ability. The DC equals 10 + the spellâ€™s level. On a success, the creatureâ€™s spell fails and has no effect\nFlared: 6,8,10,etc. Investiture. Spending 6 Investiture lets you interrupt lvl 3 spells automatically, with 8 Investiture lvl 4 spells, etc.',
     category: 'metallic',
     pathName: 'Mistborn',
     specialty: 'Allomancy',
@@ -217,7 +202,6 @@ export const METALLIC_TALENTS: TalentNode[] = [
   {
     id: 'allo_aluminum_gnat',
     name: 'Aluminum Gnat',
-    shortName: 'Aluminum Gnat',
     code: 'metal',
     description: 'Action. Self. Once per long rest. 0 Investiture. You can burn aluminum. When burning aluminum, you dispel any allomantic ability that you are concentrating on and lose all your Investiture points.\nFlared: You can dispel one additional magic effect from you.',
     category: 'metallic',
@@ -231,7 +215,6 @@ export const METALLIC_TALENTS: TalentNode[] = [
   {
     id: 'allo_duralumin_gnat',
     name: 'Duralumin Gnat',
-    shortName: 'Duralumin Gnat',
     code: 'metal',
     description: 'Free Action. Self. All Investiture. You can burn duralumin. Once per long rest. When burning duralumin, you can cast one allomantic ability that you know as it was flared 5 times.',
     category: 'metallic',
@@ -246,8 +229,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   // SHADOW (Ordered 1-3 and a-c)
   {
     id: 'shadow_1',
-    name: '1 Quickdraw',
-    shortName: 'Quickdraw',
+    name: 'Quickdraw',
     code: '1',
     description: 'You can use the Drink Vial Action as a Bonus Action.',
     category: 'metallic',
@@ -260,8 +242,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'shadow_2',
-    name: '2 Advanced Metallurgy',
-    shortName: 'Adv Metallurgy',
+    name: 'Adv Metallurgy',
     code: '2',
     description: 'You can create robust Metal Vials that can hold 10 points of Investiture.',
     category: 'metallic',
@@ -274,8 +255,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'shadow_3',
-    name: '3 Controlled Fall',
-    shortName: 'Controlled Fall',
+    name: 'Controlled Fall',
     code: '3',
     description: 'If you have the Lurcher and Coinshot abilities, as an Action you can spend 2 Investiture to gain 30 ft of flying speed for 1 turn.',
     category: 'metallic',
@@ -288,8 +268,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'shadow_a',
-    name: 'a Cast Iron Stomach',
-    shortName: 'Cast Iron Stomach',
+    name: 'Cast Iron Stomach',
     code: 'a',
     description: 'Your total Investiture is increased by your lvl.',
     category: 'metallic',
@@ -302,8 +281,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'shadow_b',
-    name: 'b Silent Steps',
-    shortName: 'Silent Steps',
+    name: 'Silent Steps',
     code: 'b',
     description: 'While not wearing heavy armor, you can move in complete silence and do not provoke Opportunity Attacks.',
     category: 'metallic',
@@ -316,8 +294,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'shadow_c',
-    name: 'c Call Mist',
-    shortName: 'Call Mist',
+    name: 'Call Mist',
     code: 'c',
     description: 'Action. Range 30 ft. Concentration. 3 Investiture. Once per long rest, you summon a 20 ft radius sphere of thick, swirling mist centered on a point within range. The area is heavily obscured to all creatures except you.',
     category: 'metallic',
@@ -332,8 +309,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   // ===================== FERUCHEMIST =====================
   {
     id: 'feru_key',
-    name: 'Gift of Terris (key talent)',
-    shortName: 'Gift of Terris',
+    name: 'Gift of Terris',
     code: 'key',
     description: 'You can create Metalminds and attune to them. You obtain 1 Feruchemy ability without spending any point. You gain Harmony.\n\nMetalmind: Wondrous Item. Requires attunement. It can only be attuned by its original owner. Piece of jewelry made of a certain type of metal. Each Metalmind is associated with a specific attribute determined by its metal type. While attuned, the owner can use the Storing and Tapping Actions. Each Metalmind can store up to 8 charges.\n\nStoring: Action. Concentration. While storing, the attuned creature voluntarily reduces the chosen trait and stores that power within the metalmind. The creature suffers the stated penalty until they stop storing. You gain 1 charge in the metalmind for each hour of storing.\n\nTapping: Bonus Action. While tapping, the creature expends charges to gain a temporary boost in the trait. For each charge expended, they gain the listed benefit for 1 minute.\n\nHarmony: Your body adapts to your needs. Once per long rest you can rearrange 2 points of your ability scores.',
     category: 'metallic',
@@ -348,8 +324,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   // FERUCHEMY (16 Metals - Any Order! 1 Free!)
   {
     id: 'feru_skimmer',
-    name: 'Skimmer (Ironmind - Weight)',
-    shortName: 'Skimmer (Iron)',
+    name: 'Skimmer (Iron)',
     code: 'metal',
     description: 'You can create an Ironmind to store your physical weight.\nStoring: You halve your weight and have Disadvantage on checks to resist being shoved, moved or knocked prone and Advantage on Acrobatics checks and Dexterity saving throws.\nTapping: You double your weight and have Advantage on checks to resist being shoved, moved or knocked prone and have Disadvantage on Acrobatics checks and Dexterity saving throws. Falling on a creature deals an additional 1d6 per charge tapped.',
     category: 'metallic',
@@ -362,8 +337,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'feru_steelrunner',
-    name: 'Steelrunner (Steelmind - Speed)',
-    shortName: 'Steelrunner (Steel)',
+    name: 'Steelrunner (Steel)',
     code: 'metal',
     description: 'You can create a Steelmind to store your physical speed.\nStoring: Your movement speed is halved.\nTapping: Gain +10 feet of movement speed per charge tapped.',
     category: 'metallic',
@@ -376,8 +350,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'feru_windwhisperer',
-    name: 'Windwhisperer (Tinmind - Senses)',
-    shortName: 'Windwhisperer (Tin)',
+    name: 'Windwhisperer (Tin)',
     code: 'metal',
     description: 'You can create a Tinmind to store senses.\nStoring: You have Disadvantage on Perception checks.\nTapping: Gain Advantage on Perception checks and can see in nonmagical darkness up to 60 feet per 2 charges tapped.',
     category: 'metallic',
@@ -390,8 +363,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'feru_brute',
-    name: 'Brute (Pewtermind - Strength)',
-    shortName: 'Brute (Pewter)',
+    name: 'Brute (Pewter)',
     code: 'metal',
     description: 'You can create a Pewtermind to store physical strength.\nStoring: You have disadvantage at Strength checks, Strength saving throws and -2 to Strength-based attack and damage rolls.\nTapping: Gain advantage on Strength checks, saving throws, and +1 to Strength-based attack and damage rolls per charge tapped.',
     category: 'metallic',
@@ -404,8 +376,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'feru_sparker',
-    name: 'Sparker (Zincmind - Mental Speed)',
-    shortName: 'Sparker (Zinc)',
+    name: 'Sparker (Zinc)',
     code: 'metal',
     description: 'You can create a Zincmind to store mental speed.\nStoring: You have Disadvantage on Intelligence and Wisdom checks and -2 Initiative.\nTapping: You have Advantage on Intelligence and Wisdom checks and +1 to Initiative per charge tapped.',
     category: 'metallic',
@@ -418,8 +389,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'feru_firesoul',
-    name: 'Firesoul (Brassmind - Warmth)',
-    shortName: 'Firesoul (Brass)',
+    name: 'Firesoul (Brass)',
     code: 'metal',
     description: 'You can create a Brassmind to store warmth.\nStoring: You are vulnerable to cold damage and gain resistance to fire damage.\nTapping: You are vulnerable to fire damage and gain resistance to cold damage.',
     category: 'metallic',
@@ -432,8 +402,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'feru_archivist',
-    name: 'Archivist (Coppermind - Memories)',
-    shortName: 'Archivist (Copper)',
+    name: 'Archivist (Copper)',
     code: 'metal',
     description: 'You can create a Coppermind to store memories.\nStoring: You have disadvantage on Intelligence and Wisdom checks.\nTapping: You can recall any information you have ever learned with perfect clarity. Gain advantage on Intelligence checks related to stored memories.',
     category: 'metallic',
@@ -446,8 +415,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'feru_sentry',
-    name: 'Sentry (Bronzemind - Wakefulness)',
-    shortName: 'Sentry (Bronze)',
+    name: 'Sentry (Bronze)',
     code: 'metal',
     description: 'You can create a Bronzemind to store wakefulness.\nStoring: You have Disadvantage on saving throws against being surprised or charmed.\nTapping: You cannot be surprised and gain Advantage on saving throws against charm and sleep effects.',
     category: 'metallic',
@@ -460,8 +428,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'feru_bloodmaker',
-    name: 'Bloodmaker (Goldmind - Health)',
-    shortName: 'Bloodmaker (Gold)',
+    name: 'Bloodmaker (Gold)',
     code: 'metal',
     description: 'You can create a Goldmind to store health.\nStoring: You reduce your maximum hit points by 5 per hour stored.\nTapping: You gain 5 temporary hit points per charge tapped. If you tap 3 or more charges at once, you can end one condition afflicting you (blinded, deafened, poisoned, or one disease).',
     category: 'metallic',
@@ -474,8 +441,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'feru_pinnacle',
-    name: 'Pinnacle (Electrummind - Determination)',
-    shortName: 'Pinnacle (Electrum)',
+    name: 'Pinnacle (Electrum)',
     code: 'metal',
     description: 'You can create an Electrummind to store determination.\nStoring: You have Disadvantage on Charisma checks and saving throws against fear.\nTapping: You have Advantage on saving throws against being frightened and gain advantage on Charisma checks.',
     category: 'metallic',
@@ -488,8 +454,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'feru_gasper',
-    name: 'Gasper (Cadmiummind - Breath)',
-    shortName: 'Gasper (Cadmium)',
+    name: 'Gasper (Cadmium)',
     code: 'metal',
     description: 'You can create a Cadmiummind to store breath.\nStoring: You have Disadvantage on Athletics checks.\nTapping: You can hold your breath for 1 additional minute per charge.',
     category: 'metallic',
@@ -502,8 +467,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'feru_subsumer',
-    name: 'Subsumer (Bendalloymind - Energy)',
-    shortName: 'Subsumer (Bendalloy)',
+    name: 'Subsumer (Bendalloy)',
     code: 'metal',
     description: 'You can create a Bendalloymind to store energy.\nStoring: You have Disadvantage on Constitution checks and gain 1 level of exhaustion.\nTapping: You can ignore 1 level of exhaustion and you don\'t need to eat or drink for 8 hours per charge.',
     category: 'metallic',
@@ -516,8 +480,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'feru_soulbearer',
-    name: 'Soulbearer (Nicrosilmind - Investiture)',
-    shortName: 'Soulbearer (Nicrosil)',
+    name: 'Soulbearer (Nicrosil)',
     code: 'metal',
     description: 'You can create a Nicrosilmind to store Investiture.\nStoring: You reduce your maximum Investiture points by half. Alternatively you can sacrifice 1 spell slot per hour. For each slot stored, gain 1 charge. You cannot regain spell slots or use magic items requiring spell slots during this period.\nTapping: You regain and double your Investiture points. Alternatively, for each charge tapped you regain one spell slot of up to 2nd level or, for 3 charges, you can cast your next spell as if using a slot one level higher (max 6th level).',
     category: 'metallic',
@@ -530,8 +493,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'feru_spinner',
-    name: 'Spinner (Chromiummind - Fortune)',
-    shortName: 'Spinner (Chromium)',
+    name: 'Spinner (Chromium)',
     code: 'metal',
     description: 'You can create a Chromiummind to store Fortune.\nStoring: All your rolls are with Disadvantage. You cannot benefit from class or feat features that rely on luck or rerolls.\nTapping: For each charge tapped you may reroll an ability check, saving throw, or attack roll and take either result. For 1 charge you can also impose Disadvantage on an attack roll made against you. You can only use the Tapping action up to 3 charges per long rest.',
     category: 'metallic',
@@ -544,8 +506,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'feru_trueself',
-    name: 'Trueself (Aluminummind - Identity)',
-    shortName: 'Trueself (Aluminum)',
+    name: 'Trueself (Aluminum)',
     code: 'metal',
     description: 'You can create an Aluminummind to store Identity.\nStoring: You cannot cast spells or use Investiture. You cannot attune to or benefit from magical items.\nTapping: You become immune to all divination spells and emotional allomancy for 1 hour per charge.',
     category: 'metallic',
@@ -558,8 +519,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'feru_connector',
-    name: 'Connector (Duraluminmind - Connection)',
-    shortName: 'Connector (Duralumin)',
+    name: 'Connector (Duralumin)',
     code: 'metal',
     description: 'You can create a Duraluminmind to store Connection.\nStoring: You have Disadvantage on Charisma checks and cannot benefit from buffs provided by your allies.\nTapping: You can tap 1 charge to gain Advantage on your next Charisma check. For 3 charges you can also select a creature that\'s 5ft from you and speak its language for 1 hour or know something specific from it.',
     category: 'metallic',
@@ -574,8 +534,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   // KEEPER (Ordered 1-3 and a-c)
   {
     id: 'keeper_1',
-    name: '1 Deep Reserves',
-    shortName: 'Deep Reserves',
+    name: 'Deep Reserves',
     code: '1',
     description: 'Your Metalminds can store up to 16 charges.',
     category: 'metallic',
@@ -588,8 +547,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'keeper_2',
-    name: '2 Harmonic Link',
-    shortName: 'Harmonic Link',
+    name: 'Harmonic Link',
     code: '2',
     description: 'Your Metalminds no longer require attunement.',
     category: 'metallic',
@@ -602,8 +560,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'keeper_3',
-    name: '3 Quick Imprint',
-    shortName: 'Quick Imprint',
+    name: 'Quick Imprint',
     code: '3',
     description: 'You gain 1 charge while storing for 10 minutes instead of 1 hour.',
     category: 'metallic',
@@ -616,8 +573,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'keeper_a',
-    name: 'a Trace of Self',
-    shortName: 'Trace of Self',
+    name: 'Trace of Self',
     code: 'a',
     description: 'You can detect where your Metalminds are all the time.',
     category: 'metallic',
@@ -630,8 +586,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'keeper_b',
-    name: 'b Dual Storage',
-    shortName: 'Dual Storage',
+    name: 'Dual Storage',
     code: 'b',
     description: 'You can store two Metalminds at the same time.',
     category: 'metallic',
@@ -644,8 +599,7 @@ export const METALLIC_TALENTS: TalentNode[] = [
   },
   {
     id: 'keeper_c',
-    name: 'c Dreamflow',
-    shortName: 'Dreamflow',
+    name: 'Dreamflow',
     code: 'c',
     description: 'You no longer need Concentration to store and you can do it while sleeping.',
     category: 'metallic',

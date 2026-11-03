@@ -1,11 +1,9 @@
-import React, { useState, useMemo, useEffect, useCallback } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import confetti from 'canvas-confetti';
 import { NodeStatus, TreeSection } from './types/talent';
 import {
   ALL_TALENTS,
   TALENTS_BY_ID,
-  HEROIC_KEY_IDS,
-  NON_HEROIC_KEY_IDS,
   DOR_TIER1_IDS,
   ALLOMANCY_METAL_IDS,
   FERUCHEMY_METAL_IDS,

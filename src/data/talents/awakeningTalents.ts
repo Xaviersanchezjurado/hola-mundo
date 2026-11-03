@@ -4,8 +4,7 @@ export const AWAKENING_TALENTS: TalentNode[] = [
   // Key Talent: BioChromatic Breath
   {
     id: 'awakening_key',
-    name: 'BioChromatic Breath (key talent)',
-    shortName: 'BioChromatic Breath',
+    name: 'BioChromatic Breath',
     code: 'key',
     description: 'You gain access to Investiture. You begin with a total Investiture of your Charisma modifier + your Proficiency Bonus. You gain the Reclaim Breath and Awake actions.\n\nReclaim Breath: Action. V. Touch. You can absorb Investiture from your awakened objects.\n\nAwake: Action. V, M. Touch. 1 minute. You drain the color of an object to awaken an organic object. On a successful Persuasion check, you can give that awakened object a one word command to do. The DC of the Persuasion check depends on the intensity of the color drained, the complexity of the command and the shape and form of the awakened object. It costs 2 Investiture for an object that is Small(2.5 ft), 5 Medium(5 ft), 10 Large(10 ft), 20 Huge(15 ft), 50 Gargantuan(20 ft).',
     category: 'awakening',
@@ -20,8 +19,7 @@ export const AWAKENING_TALENTS: TalentNode[] = [
   // HEIGHTENING (Linear 1 to 10)
   {
     id: 'heightening_1',
-    name: '1 Aura Recognition',
-    shortName: 'Aura Recognition',
+    name: 'Aura Recognition',
     code: '1',
     description: 'You can detect if a creature has access to Investiture in a 10ft area around yourself. You can use your action to see a faint aura around any visible creature that bears magic. You gain +2 Investiture.',
     category: 'awakening',
@@ -34,8 +32,7 @@ export const AWAKENING_TALENTS: TalentNode[] = [
   },
   {
     id: 'heightening_2',
-    name: '2 Perfect Pitch',
-    shortName: 'Perfect Pitch',
+    name: 'Perfect Pitch',
     code: '2',
     description: 'You can instantly and instinctively perceive the exact pitch of sounds and their true harmonics in a 60ft area around yourself. You gain Advantage on Investigation, Perception and Performance checks that rely on sound. You gain +2 Investiture.',
     category: 'awakening',
@@ -48,8 +45,7 @@ export const AWAKENING_TALENTS: TalentNode[] = [
   },
   {
     id: 'heightening_3',
-    name: '3 Perfect Color',
-    shortName: 'Perfect Color',
+    name: 'Perfect Color',
     code: '3',
     description: 'You can instantly and instinctively perceive the exact shade of color and their true harmonics in a 60ft area around yourself. You gain Advantage on Investigation, Perception and Performance checks that rely on color. Also, you gain 60 ft of darkvision and can distinguish colors in darkness. You gain +2 Investiture.',
     category: 'awakening',
@@ -62,8 +58,7 @@ export const AWAKENING_TALENTS: TalentNode[] = [
   },
   {
     id: 'heightening_4',
-    name: '4 Perfect Lifesense',
-    shortName: 'Perfect Lifesense',
+    name: 'Perfect Lifesense',
     code: '4',
     description: 'You can instantly and instinctively detect the life sense of creatures in a 60ft area around yourself. You can use your action to see a faint aura around any living creature and know its health points. You gain +2 Investiture.',
     category: 'awakening',
@@ -76,8 +71,7 @@ export const AWAKENING_TALENTS: TalentNode[] = [
   },
   {
     id: 'heightening_5',
-    name: '5 Agelessness',
-    shortName: 'Agelessness',
+    name: 'Agelessness',
     code: '5',
     description: 'You are immune to disease and no longer age. You have Advantage on saving throws against poison, and you have resistance against poison damage.You gain +2 Investiture.',
     category: 'awakening',
@@ -90,8 +84,7 @@ export const AWAKENING_TALENTS: TalentNode[] = [
   },
   {
     id: 'heightening_6',
-    name: '6 Instinctive Awakening',
-    shortName: 'Instinctive Awake',
+    name: 'Instinctive Awake',
     code: '6',
     description: 'Whenever you make a Persuasion check for the Awake action, you can treat your roll of 9 or lower as a 10. You gain +2 Investiture.',
     category: 'awakening',
@@ -104,8 +97,7 @@ export const AWAKENING_TALENTS: TalentNode[] = [
   },
   {
     id: 'heightening_7',
-    name: '7 Invested Recognition',
-    shortName: 'Invested Recog',
+    name: 'Invested Recog',
     code: '7',
     description: 'You can detect if a creature or object is Invested in a 30ft area around yourself. You can use your action to see a faint aura around any visible creature or object that bears magic and know its origins. You gain +2 Investiture.',
     category: 'awakening',
@@ -118,8 +110,7 @@ export const AWAKENING_TALENTS: TalentNode[] = [
   },
   {
     id: 'heightening_8',
-    name: '8 Command Breaking',
-    shortName: 'Command Breaking',
+    name: 'Command Breaking',
     code: '8',
     description: 'Action. 8 Investiture. Range 30 ft. Once per short rest. You can target a creature or object that is Awakened. On a failed DC (10 + your proficiency bonus) Wisdom saving throw, you can override its command.You gain +2 Investiture.',
     category: 'awakening',
@@ -132,8 +123,7 @@ export const AWAKENING_TALENTS: TalentNode[] = [
   },
   {
     id: 'heightening_9',
-    name: '9 Greater Awakening',
-    shortName: 'Greater Awake',
+    name: 'Greater Awake',
     code: '9',
     description: 'Your Awake action now has a range of 30 ft. You can also Awaken non-organic objects. You gain +2 Investiture.',
     category: 'awakening',
@@ -146,8 +136,7 @@ export const AWAKENING_TALENTS: TalentNode[] = [
   },
   {
     id: 'heightening_10',
-    name: '10 Perfect Invocation',
-    shortName: 'Perfect Invocation',
+    name: 'Perfect Invocation',
     code: '10',
     description: 'You can Awake without requiring V and M components. Also, once per long rest, as an Action, you can emanate a 10ft aura of heightened color and vitality. While you have this aura activated you gain Truesight, all illusions inside the aura disappear and all creatures inside the aura must succeed in a DC (10 + your Cha mod) or be charmed. You gain +2 Investiture.',
     category: 'awakening',
@@ -162,8 +151,7 @@ export const AWAKENING_TALENTS: TalentNode[] = [
   // BREATH COMMANDER
   {
     id: 'commander_1',
-    name: '1 Efficient Awakening',
-    shortName: 'Efficient Awake',
+    name: 'Efficient Awake',
     code: '1',
     description: 'Your Awakened objects lasts 10 minutes instead of 1 when you are not in combat.',
     category: 'awakening',
@@ -176,8 +164,7 @@ export const AWAKENING_TALENTS: TalentNode[] = [
   },
   {
     id: 'commander_2',
-    name: '2 Combat Awakening',
-    shortName: 'Combat Awake',
+    name: 'Combat Awake',
     code: '2',
     description: 'Bonus Action. Touch. You can give a new command to one of your awakened objects.',
     category: 'awakening',
@@ -190,8 +177,7 @@ export const AWAKENING_TALENTS: TalentNode[] = [
   },
   {
     id: 'commander_3',
-    name: '3 Multi-Thread Command',
-    shortName: 'Multi-Thread',
+    name: 'Multi-Thread',
     code: '3',
     description: 'You can Awake more objects at the same time up to a number equal to your charisma modifier.',
     category: 'awakening',
@@ -204,8 +190,7 @@ export const AWAKENING_TALENTS: TalentNode[] = [
   },
   {
     id: 'commander_4',
-    name: '4 Ichor Infusion',
-    shortName: 'Ichor Infusion',
+    name: 'Ichor Infusion',
     code: '4',
     description: 'Action. Once per long rest. 10 Investiture. Requires attunement. You can permanently awake an object.',
     category: 'awakening',
@@ -218,8 +203,7 @@ export const AWAKENING_TALENTS: TalentNode[] = [
   },
   {
     id: 'commander_a',
-    name: 'a Lifeless Awakening',
-    shortName: 'Lifeless Awake',
+    name: 'Lifeless Awake',
     code: 'a',
     description: 'You can Awake dead bodies. They cost an extra 5 Investiture to Awake.',
     category: 'awakening',
@@ -232,8 +216,7 @@ export const AWAKENING_TALENTS: TalentNode[] = [
   },
   {
     id: 'commander_b',
-    name: 'b Breath Storage',
-    shortName: 'Breath Storage',
+    name: 'Breath Storage',
     code: 'b',
     description: 'Action. Touch. 1 Investiture. You can store one of your memories in an object that becomes awakened. That memory is erased from your mind until you reclaim it.',
     category: 'awakening',
@@ -246,8 +229,7 @@ export const AWAKENING_TALENTS: TalentNode[] = [
   },
   {
     id: 'commander_c',
-    name: 'c Breath Adaptation',
-    shortName: 'Breath Adaptation',
+    name: 'Breath Adaptation',
     code: 'c',
     description: 'You can use the Reclaim Breath Action in objects that have another form of Investiture than Breaths.',
     category: 'awakening',
@@ -260,8 +242,7 @@ export const AWAKENING_TALENTS: TalentNode[] = [
   },
   {
     id: 'commander_d',
-    name: 'd Returned',
-    shortName: 'Returned',
+    name: 'Returned',
     code: 'd',
     description: 'If you die, you come back to life with all your hit points but without any memory of your past self. Additionally, now you have to consume 1 Investiture each day or you will automatically die.',
     category: 'awakening',

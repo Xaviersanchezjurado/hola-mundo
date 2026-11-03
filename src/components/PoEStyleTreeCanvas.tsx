@@ -525,9 +525,9 @@ export const PoEStyleTreeCanvas: React.FC<PoEStyleTreeCanvasProps> = ({
                 </span>
               </div>
 
-              {/* Exact short name on rectangle */}
+              {/* Talent name on the rectangle */}
               <span className="mt-0.5 text-[11px] font-bold leading-tight truncate w-full">
-                {talent.shortName}
+                {talent.name}
               </span>
             </div>
           );

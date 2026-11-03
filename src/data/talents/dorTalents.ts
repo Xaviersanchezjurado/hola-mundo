@@ -4,8 +4,7 @@ export const DOR_TALENTS: TalentNode[] = [
   // Key Talent: Selish Connection
   {
     id: 'dor_key',
-    name: 'Selish Connection (key talent)',
-    shortName: 'Selish Connection',
+    name: 'Selish Connection',
     code: 'key',
     description: 'You gain access to Investiture. You begin with a total Investiture of your Intelligence modifier + your Proficiency Bonus. You gain the Draw the Dor and Selish Resonance. You obtain 1 free Dor Path talent without spending any point.\n\nDraw the Dor: Action. Self. Once per short rest. On a successful DC 20 Intelligence saving throw, you regain 1d8 Investiture. On a fail, you regain half as much and receive 1d8 psychic damage. On a 1 you activate a random wild magic spell.\n\nDor Resonance: For every point in The Dor Paths, the DC for using the Draw the Dor action is reduced by 1. Additionally, for every 3 points, you regain 1d8 extra Investiture when successfully using the Draw the Dor action.',
     category: 'dor',
@@ -20,8 +19,7 @@ export const DOR_TALENTS: TalentNode[] = [
   // ===================== AONDOR =====================
   {
     id: 'dor_aon_1',
-    name: '1 Aon Initiate',
-    shortName: 'Aon Initiate',
+    name: 'Aon Initiate',
     code: '1',
     description: 'You learn two Cantrips, two 1st-level Spells or one of both from any class\'s spell list. Intelligence is your spellcasting ability for these spells and you can cast these spells by spending Investiture equal to 1 + the spell\'s level.',
     category: 'dor',
@@ -34,8 +32,7 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_aon_2',
-    name: '2 Aon Adept',
-    shortName: 'Aon Adept',
+    name: 'Aon Adept',
     code: '2',
     description: 'You learn two Spells from up to 3rd level from any class\'s spell list. Intelligence is your spellcasting ability for these spells and you can cast these spells by spending Investiture equal to 1 + the spell\'s level.',
     category: 'dor',
@@ -48,8 +45,7 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_aon_3',
-    name: '3 Aon Master',
-    shortName: 'Aon Master',
+    name: 'Aon Master',
     code: '3',
     description: 'You learn two Spells from up to 5ft level from any class\'s spell list. Intelligence is your spellcasting ability for these spells and you can cast these spells by spending Investiture equal to 1 + the spell\'s level.',
     category: 'dor',
@@ -62,8 +58,7 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_aon_a',
-    name: 'a Aon Modification',
-    shortName: 'Aon Modification',
+    name: 'Aon Modification',
     code: 'a',
     description: 'When you cast a Spell, you can spend 1 additional Investiture to modify one of its properties. Choose one:\n- Double its range.\n- Double its duration.\n- Increase its area of effect by 5 feet.\n- Exclude any number of creatures from its area.\n- Change its damage type to Force.\nYou can use this ability only once per casting.',
     category: 'dor',
@@ -76,10 +71,9 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_aon_b',
-    name: 'b Aon Linking',
-    shortName: 'Aon Linking',
+    name: 'Aon Linking',
     code: 'b',
-    description: 'When using your Action to cast a Spell, you can cast another Spell by spending Investiture equal to 2 + the spell’s level.',
+    description: 'When using your Action to cast a Spell, you can cast another Spell by spending Investiture equal to 2 + the spellâ€™s level.',
     category: 'dor',
     pathName: 'The Dor',
     specialty: 'AonDor',
@@ -90,8 +84,7 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_aon_c',
-    name: 'c Taken by the Shaod',
-    shortName: 'Taken by Shaod',
+    name: 'Taken by Shaod',
     code: 'c',
     description: 'You transform into a full Elantrian with white hair and metallic skin that sheds bright light in a 10 ft radius. You no longer need to eat, drink, breathe, or sleep, and you are immune to disease, poison, and nonmagical aging. Additionally, You can cast Draw the Dor twice per short rest.',
     category: 'dor',
@@ -106,8 +99,7 @@ export const DOR_TALENTS: TalentNode[] = [
   // ===================== DAKHOR =====================
   {
     id: 'dor_dak_1',
-    name: '1 Twisted Form',
-    shortName: 'Twisted Form',
+    name: 'Twisted Form',
     code: '1',
     description: 'Action. 5 Investiture. Concentration. Up to 1 minute. You awaken the twisted patterns within your skeleton. While concentrating, you gain +2 AC, +10 ft and your melee weapon attacks and unarmed strikes deal additional force damage equal to your Intelligence modifier.',
     category: 'dor',
@@ -120,8 +112,7 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_dak_2',
-    name: '2 Unbreakable Bones',
-    shortName: 'Unbreakable Bones',
+    name: 'Unbreakable Bones',
     code: '2',
     description: 'While Concentrating on Twisted Form, you gain resistance to bludgeoning, piercing, and slashing damage, and you have Advantage on saving throws against being knocked Prone or forcibly moved.',
     category: 'dor',
@@ -134,8 +125,7 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_dak_3',
-    name: '3 Master of the Dakhor',
-    shortName: 'Master of Dakhor',
+    name: 'Master of Dakhor',
     code: '3',
     description: 'While Concentrating on Twisted Form, its effects apply twice. Additionally, you gain Advantage on Strength, Dexterity and Constitution checks and saving throws and you cannot be Stunned or Paralyzed by nonmagical effects.',
     category: 'dor',
@@ -148,8 +138,7 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_dak_a',
-    name: 'a Bone Shifter',
-    shortName: 'Bone Shifter',
+    name: 'Bone Shifter',
     code: 'a',
     description: 'Action. 2 Investiture. Up to 8 hours. You can completely change your appearance and creatures have Disadvantage on Wisdom (Insight) checks made to discern your true identity. Additionally, you can also grow claws to add +1d6 slashing damage to your unarmed attacks and gain 20 ft of climbing speed.',
     category: 'dor',
@@ -162,8 +151,7 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_dak_b',
-    name: 'b Devourer of Investiture',
-    shortName: 'Devourer Invest',
+    name: 'Devourer Invest',
     code: 'b',
     description: 'Reaction. 2 Investiture. When you take damage from a magical effect, you can absorb part of the Dor flowing through the attack. Reduce the damage by 2d10 + your Intelligence modifier and regain Investiture equal to half the damage prevented, rounded down.',
     category: 'dor',
@@ -176,8 +164,7 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_dak_c',
-    name: 'c Dakhor Teleportation',
-    shortName: 'Dakhor Teleport',
+    name: 'Dakhor Teleport',
     code: 'c',
     description: 'Once per long rest. Action. 5 Investiture. Self. V, S, M (living creature to sacrifice). You teleport yourself and up to five willing creatures within 10 feet of you to a location you know within 60 ft. For each sacrificed creature, you can add 60 ft to the distance. If the sacrificed creature had access to Investiture, you add 120 ft instead of 60 ft.',
     category: 'dor',
@@ -192,8 +179,7 @@ export const DOR_TALENTS: TalentNode[] = [
   // ===================== CHAYSHAN =====================
   {
     id: 'dor_cha_1',
-    name: '1 ChayShan Dance',
-    shortName: 'ChayShan Dance',
+    name: 'ChayShan Dance',
     code: '1',
     description: 'Bonus Action. 1 Investiture per round. Concentration. Up to 1 minute. You enter the fluid, circular motions of the ChayShan dance. While concentrating on this posture, your walking speed increases by 5 ft and your melee weapon attacks and unarmed strikes deal additional damage equal to your Intelligence modifier. To keep Concentrating on ChayShan Dance you must spend a Bonus Action each turn.',
     category: 'dor',
@@ -206,8 +192,7 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_cha_2',
-    name: '2 Empowering Momentum',
-    shortName: 'Empowering Mom',
+    name: 'Empowering Mom',
     code: '2',
     description: 'For each consecutive turn you maintain concentration on ChayShan Dance, you gain +5 ft. of walking speed and the additional damage granted by ChayShan Dance increases by an amount equal to your Intelligence modifier. This bonus stacks each turn, up to a maximum of 10 stacks.',
     category: 'dor',
@@ -220,8 +205,7 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_cha_3',
-    name: '3 Breaking Blow',
-    shortName: 'Breaking Blow',
+    name: 'Breaking Blow',
     code: '3',
     description: 'Action. 1 Investiture. You end your ChayShan Dance with an unarmed attack that deals an additional 3d10 bludgeoning damage and on a failed Strength saving throw against your spell save DC, your target is knocked Prone and pushed 10 feet away from you in a straight line.',
     category: 'dor',
@@ -234,8 +218,7 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_cha_a',
-    name: 'a Focused Motion',
-    shortName: 'Focused Motion',
+    name: 'Focused Motion',
     code: 'a',
     description: 'While Concentrating on ChayShan Dance, you gain Advantage on Dexterity saving throws and creatures have Disadvantage against attacking you.',
     category: 'dor',
@@ -248,8 +231,7 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_cha_b',
-    name: 'b Resonant Form',
-    shortName: 'Resonant Form',
+    name: 'Resonant Form',
     code: 'b',
     description: 'While Concentrating on ChayShan Dance, you gain Blindsight 15ft, you have Advantage on Constitution and Wisdom saving throws, and your unarmed attacks deal magical damage.',
     category: 'dor',
@@ -262,8 +244,7 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_cha_c',
-    name: 'c Master of the Dance',
-    shortName: 'Master of Dance',
+    name: 'Master of Dance',
     code: 'c',
     description: 'While Concentrating on ChayShan Dance, you gain resistance to all damage except psychic, you can use your Intelligence modifier instead of Strength or Dexterity for your melee attack and damage rolls, taking damage does not trigger Concentration checks to maintain ChayShan Dance and you gain 1 Investiture for every successful hit against a creature.',
     category: 'dor',
@@ -278,8 +259,7 @@ export const DOR_TALENTS: TalentNode[] = [
   // ===================== FORGERY =====================
   {
     id: 'dor_for_1',
-    name: '1 Remembering',
-    shortName: 'Remembering',
+    name: 'Remembering',
     code: '1',
     description: 'Action. 2 Investiture. S,M (carved soulstamp, ink). Touch. 1 Hour. You apply a Soulstamp to a nonmagical object, rewriting a part of its history. Choose one of the following effects:\n- Masterwork: The object becomes an expertly crafted version of itself, granting your proficiency bonus on checks made using it.\n- Reconstruction: Repair a damaged or broken object, provided all of its major pieces are present.\n- Altered Purpose: The object gains a plausible function it could reasonably have possessed.',
     category: 'dor',
@@ -292,8 +272,7 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_for_2',
-    name: '2 Resealing',
-    shortName: 'Resealing',
+    name: 'Resealing',
     code: '2',
     description: 'Action. 3 Investiture. S,M (carved soulstamp, ink). Touch. The target regains 3d8 + your Proficiency Bonus hit points and you can end one of the following conditions affecting it: Blinded, Deafened, Poisoned, or Prone. A creature can only benefit from Resealing once per Short Rest.',
     category: 'dor',
@@ -306,8 +285,7 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_for_3',
-    name: '3 Soulforging',
-    shortName: 'Soulforging',
+    name: 'Soulforging',
     code: '3',
     description: 'Action. 4 Investiture. S,M (carved soulstamp, ink). Touch. 1 Minute. On a successful Wisdom saving throw against your spell save DC, you apply a Soulstamp and rewrite part of the Spiritual history of a creature. Choose one of the following:\n- Forged Mind: Gain or lose proficiency in one skill, tool, weapon, armor or saving throw.\n- Forged Body: Gain or lose one trait like darkvision, types of speed or resistances.\n- Forged Appearance: Completely alter your appearance, voice, scent and other physical characteristics.\n- Forged Memory: Gain or lose a specific memory appropriate to your forged history.',
     category: 'dor',
@@ -320,8 +298,7 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_for_a',
-    name: 'a Invested Ink',
-    shortName: 'Invested Ink',
+    name: 'Invested Ink',
     code: 'a',
     description: 'Remembering lasts 8 hours instead of 1, Soulforging lasts 1 Hour instead of 1 Minute and Resealing heals an additional 1d8.',
     category: 'dor',
@@ -334,8 +311,7 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_for_b',
-    name: 'b Soulstone Stamps',
-    shortName: 'Soulstone Stamps',
+    name: 'Soulstone Stamps',
     code: 'b',
     description: 'Forgery spells costs 1 less Investiture. Additionally, when your Soulstamp ends, you can spend 2 Investiture as a reaction to extend it 8 hours for Remembering, 1 hour for Soulforging or an additional 1d8 for the Resealing heal.',
     category: 'dor',
@@ -348,10 +324,9 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_for_c',
-    name: 'c Master Forger',
-    shortName: 'Master Forger',
+    name: 'Master Forger',
     code: 'c',
-    description: 'Remembering works on magical objects, Resealing can heal long lost missing body parts and Soulforging can change stats, spells and class. Additionally, you can spend 4 Investiture to make a Soulstamp permanent and doesn’t expire unless it breaks on a successful Wisdom saving throw against your spell save DC.',
+    description: 'Remembering works on magical objects, Resealing can heal long lost missing body parts and Soulforging can change stats, spells and class. Additionally, you can spend 4 Investiture to make a Soulstamp permanent and doesnâ€™t expire unless it breaks on a successful Wisdom saving throw against your spell save DC.',
     category: 'dor',
     pathName: 'The Dor',
     specialty: 'Forgery',
@@ -364,8 +339,7 @@ export const DOR_TALENTS: TalentNode[] = [
   // ===================== BLOODSEALING =====================
   {
     id: 'dor_blo_1',
-    name: '1 Bloodseal Ward',
-    shortName: 'Bloodseal Ward',
+    name: 'Bloodseal Ward',
     code: '1',
     description: 'Action. 2 Investiture. S,M (blood of the target). Touch. 1 Hour. You inscribe a Bloodseal ward upon a door, gate, or other solid surface, using the blood of a specific creature. The creature whose blood was used becomes bound to the ward. While the ward persists, you know if the bound creature: leaves the room or enclosed area protected by the ward, attempts to alter, destroy, or remove the Bloodseal or willingly allows another creature to alter or remove the Bloodseal. You can have only one active Bloodseal Ward at a time. The ward\'s magical glow gradually fades as its duration approaches its end. The Bloodseal disappears when your concentration ends.',
     category: 'dor',
@@ -378,8 +352,7 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_blo_2',
-    name: '2 Reinforced Ward',
-    shortName: 'Reinforced Ward',
+    name: 'Reinforced Ward',
     code: '2',
     description: 'Reaction. 1 Investiture. When the creature bound to your ward attempts to leave the protected area, interfere with the Bloodseal or willingly allows another creature to alter it, the creature must succeed on a Wisdom saving throw against your spell save DC or be Paralyzed for 1d6 turns and take 3d10 psychic damage. It takes half as much damage and is not Paralyzed on a successful saving throw. Additionally, objects protected by your Bloodseal Ward cannot be altered by any magic means while the ward remains active.',
     category: 'dor',
@@ -392,8 +365,7 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_blo_3',
-    name: '3 Master Bloodsealer',
-    shortName: 'Master Bloodseal',
+    name: 'Master Bloodseal',
     code: '3',
     description: 'Your Bloodseal Ward lasts for 24 hours and you receive visual information mentally from the seal, which has normal vision and darkvision out to 30ft and blindsight out to 10ft. Additionally, you can maintain a number of Bloodseal Wards equal to proficiency bonus + your levels on Bloodsealing.',
     category: 'dor',
@@ -406,10 +378,9 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_blo_a',
-    name: 'a Animate Skeletal',
-    shortName: 'Animate Skeletal',
+    name: 'Animate Skeletal',
     code: 'a',
-    description: 'Action. 4 Investiture. V,S,M (bones). Range 10 ft. 1 Hour. Concentration. You create a Skeletal from a collection of bones and give it one simple command. The Skeletal uses the following statistics:\nSkeletal: Medium undead construct | AC: 13 | HP: 10 + your Proficiency Bonus × 2 | Speed: 30 ft. | STR: 12 (+1), DEX: 14 (+2), CON: 10 (+0), INT: 3 (-4), WIS: 8 (-1), CHA: 5 (-3)\nBlood Tracker: Advantage on Wisdom (Survival) checks made to track creature.\nBone Claw: Action. Melee Weapon Attack: your spell attack modifier to hit, reach 5 ft., one target. Hit: 1d6 + 2 slashing damage.',
+    description: 'Action. 4 Investiture. V,S,M (bones). Range 10 ft. 1 Hour. Concentration. You create a Skeletal from a collection of bones and give it one simple command. The Skeletal uses the following statistics:\nSkeletal: Medium undead construct | AC: 13 | HP: 10 + your Proficiency Bonus Ã— 2 | Speed: 30 ft. | STR: 12 (+1), DEX: 14 (+2), CON: 10 (+0), INT: 3 (-4), WIS: 8 (-1), CHA: 5 (-3)\nBlood Tracker: Advantage on Wisdom (Survival) checks made to track creature.\nBone Claw: Action. Melee Weapon Attack: your spell attack modifier to hit, reach 5 ft., one target. Hit: 1d6 + 2 slashing damage.',
     category: 'dor',
     pathName: 'The Dor',
     specialty: 'Bloodsealing',
@@ -420,8 +391,7 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_blo_b',
-    name: 'b Sharp Bones',
-    shortName: 'Sharp Bones',
+    name: 'Sharp Bones',
     code: 'b',
     description: 'When you create a Skeletal, choose two modification:\n- Sharpened Bones: Its Bone Claw deals 1d8 slashing damage instead of 1d6.\n- Spiked Frame: A creature that hits the Skeletal with a melee attack while within 5 feet of it takes 1d4 piercing damage.\n- Reinforced Frame: The Skeletal gains +2 AC and its hit points increase by an amount equal to your Proficiency Bonus.\n- Precise Commands: The Skeletal can understand more complex instructions.',
     category: 'dor',
@@ -434,8 +404,7 @@ export const DOR_TALENTS: TalentNode[] = [
   },
   {
     id: 'dor_blo_c',
-    name: 'c Army of the dead',
-    shortName: 'Army of the dead',
+    name: 'Army of the dead',
     code: 'c',
     description: 'You can now animate up to 3 skeletals at the same time using the Animate Skeletal Action and you can control up to your proficiency bonus + your levels on Bloodsealing. Animate Skeletals no longer requires Concentration.',
     category: 'dor',
