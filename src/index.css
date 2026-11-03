@@ -8,6 +8,10 @@
   }
 }
 
+.font-cinzel-decorative {
+  font-family: 'Cinzel Decorative', serif;
+}
+
 /* Custom dark scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

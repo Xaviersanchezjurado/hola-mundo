@@ -171,9 +171,9 @@ export const CharacterHeader: React.FC<CharacterHeaderProps> = ({
       </div>
 
       {/* Bottom Category Filter & Legend Bar */}
-      <div className="mt-2.5 flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-800/60">
+      <div className="relative mt-2.5 flex flex-wrap items-center justify-center gap-2 pt-2 border-t border-slate-800/60">
         {/* Navigation Tabs */}
-        <div className="flex items-center gap-1 overflow-x-auto py-0.5">
+        <div className="flex w-full items-center justify-center gap-1 py-0.5">
           {[
             { id: 'heroic', label: 'HEROIC PATHS' },
             { id: 'investiture', label: 'INVESTITURE PATHS' },
@@ -182,7 +182,7 @@ export const CharacterHeader: React.FC<CharacterHeaderProps> = ({
               key={tab.id}
               type="button"
               onClick={() => onSectionChange(tab.id as TreeSection)}
-              className={`rounded-lg border px-4 py-1.5 text-xs font-bold tracking-wider whitespace-nowrap transition-colors cursor-pointer ${
+              className={`font-cinzel-decorative rounded-lg border px-3 sm:px-4 py-1.5 text-[10px] sm:text-xs font-bold tracking-wider whitespace-nowrap transition-colors cursor-pointer ${
                 activeSection === tab.id
                   ? 'bg-sky-600/30 border-sky-500/50 text-sky-200'
                   : 'border-transparent text-slate-400 hover:bg-slate-900 hover:text-slate-200'
@@ -194,7 +194,7 @@ export const CharacterHeader: React.FC<CharacterHeaderProps> = ({
         </div>
 
         {/* PoE Node Status Legend */}
-        <div className="flex items-center gap-3 text-[11px] text-slate-400 font-medium">
+        <div className="flex w-full items-center justify-center gap-3 text-[11px] text-slate-400 font-medium lg:absolute lg:right-0 lg:w-auto">
           <div className="flex items-center gap-1.5">
             <span className="h-2.5 w-2.5 rounded bg-blue-500 shadow-sm shadow-blue-500/50" />
             <span className="text-blue-300">Adquirido (Azul)</span>
