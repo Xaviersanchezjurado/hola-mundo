@@ -87,11 +87,19 @@
   pointer-events: none;
 }
 
-/* 5.4 Imagen: máscara radial que funde la imagen con el fondo */
+/* 5.4 Imagen: máscaras que funden los bordes laterales, superior e inferior con el fondo */
 .heroic-carousel-image {
   display: block;
-  mask-image: radial-gradient(ellipse 50% 80% at center, #000 0 52%, rgb(0 0 0 / 35%) 70%, transparent 88%);
-  -webkit-mask-image: radial-gradient(ellipse 50% 80% at center, #000 0 52%, rgb(0 0 0 / 35%) 70%, transparent 88%);
+  /* Desvanecido vertical: oculta los bordes superior e inferior */
+  mask-image:
+    linear-gradient(to bottom, transparent 0%, #000 7%, #000 95%, transparent 100%),
+    radial-gradient(ellipse 50% 80% at center, #000 0 52%, rgb(0 0 0 / 35%) 70%, transparent 88%);
+  -webkit-mask-image:
+    linear-gradient(to bottom, transparent 0%, #000 7%, #000 95%, transparent 100%),
+    radial-gradient(ellipse 50% 80% at center, #000 0 52%, rgb(0 0 0 / 35%) 70%, transparent 88%);
+  /* Intersección de ambas máscaras para que el centro quede intacto */
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
 }
 
 /* ==========================================================================
