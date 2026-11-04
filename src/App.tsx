@@ -1,11 +1,9 @@
-import React, { useState, useMemo, useEffect, useCallback } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import confetti from 'canvas-confetti';
-import { PathCategory, NodeStatus } from './types/talent';
+import { NodeStatus, TreeSection } from './types/talent';
 import {
   ALL_TALENTS,
   TALENTS_BY_ID,
-  HEROIC_KEY_IDS,
-  NON_HEROIC_KEY_IDS,
   DOR_TIER1_IDS,
   ALLOMANCY_METAL_IDS,
   FERUCHEMY_METAL_IDS,
@@ -19,6 +17,7 @@ import { TalentTooltip } from './components/TalentTooltip';
 import { OrderSelectionModal } from './components/OrderSelectionModal';
 import { CharacterSheetModal } from './components/CharacterSheetModal';
 import { QuickSearchModal } from './components/QuickSearchModal';
+import { HeroicPathCarousel } from './components/HeroicPathCarousel';
 import { Sparkles, Info, AlertCircle, Award } from 'lucide-react';
 
 const STORAGE_KEY = 'cosmere_rpg_character_state_v1';
@@ -72,7 +71,8 @@ export default function App() {
   });
 
   // Active Category Filter
-  const [activeCategory, setActiveCategory] = useState<PathCategory | 'all'>('all');
+  const [activeSection, setActiveSection] = useState<TreeSection>('heroic');
+  const [selectedHeroicPath, setSelectedHeroicPath] = useState<string | null>(null);
 
   // UI Interactive States
   const [hoveredTalentId, setHoveredTalentId] = useState<string | null>(null);
@@ -369,6 +369,21 @@ export default function App() {
     ? TALENTS_BY_ID[hoveredTalentId]
     : null;
 
+  const handleSectionChange = (section: TreeSection) => {
+    setActiveSection(section);
+    setSelectedHeroicPath(null);
+    setInspectTalentId(null);
+    setHoveredTalentId(null);
+    setSearchHighlightId(null);
+  };
+
+  const handleHeroicPathSelect = (pathName: string) => {
+    setSelectedHeroicPath(pathName);
+    setInspectTalentId(null);
+    setHoveredTalentId(null);
+    setSearchHighlightId(null);
+  };
+
   return (
     <div className="relative flex h-screen w-screen flex-col overflow-hidden bg-slate-950 font-sans text-slate-100">
       {/* Top Header HUD */}
@@ -381,19 +396,20 @@ export default function App() {
         spentPoints={spentPoints}
         remainingPoints={remainingPoints}
         freeSurgesChosen={freeSurgesChosen}
-        activeCategory={activeCategory}
-        onCategoryChange={setActiveCategory}
+        activeSection={activeSection}
+        onSectionChange={handleSectionChange}
         onOpenSheet={() => setIsSheetModalOpen(true)}
         onReset={() => setIsResetConfirmOpen(true)}
         onOpenSearch={() => setIsSearchModalOpen(true)}
-        onCenterView={() => setActiveCategory('all')}
+        onCenterView={() => handleSectionChange('heroic')}
       />
 
       {/* Main Interactive Canvas */}
       <div className="relative flex-1 w-full h-full overflow-hidden">
         <PoEStyleTreeCanvas
           selectedTalents={selectedTalents}
-          activeCategory={activeCategory}
+          activeSection={activeSection}
+          selectedHeroicPath={selectedHeroicPath}
           getNodeStatus={getNodeStatus}
           hoveredTalentId={hoveredTalentId}
           onHoverTalent={(id, pos) => {
@@ -403,6 +419,10 @@ export default function App() {
           onSelectTalent={handleSelectTalent}
           searchHighlightId={searchHighlightId}
         />
+
+        {activeSection === 'heroic' && !selectedHeroicPath && (
+          <HeroicPathCarousel onSelectPath={handleHeroicPathSelect} />
+        )}
 
         {/* Free Gifts Floating Reminder Banners */}
         {selectedTalents.includes('dor_key') && !freeDorTalentChosen && (
@@ -486,6 +506,11 @@ export default function App() {
         isOpen={isSearchModalOpen}
         onClose={() => setIsSearchModalOpen(false)}
         onSelectTalent={(id) => {
+          const talent = TALENTS_BY_ID[id];
+          if (talent) {
+            setActiveSection(talent.category === 'heroic' ? 'heroic' : 'investiture');
+            setSelectedHeroicPath(talent.category === 'heroic' ? talent.pathName : null);
+          }
           setSearchHighlightId(id);
           setInspectTalentId(id);
         }}

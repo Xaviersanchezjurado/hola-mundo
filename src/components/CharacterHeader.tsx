@@ -1,5 +1,5 @@
 import React from 'react';
-import { PathCategory } from '../types/talent';
+import { TreeSection } from '../types/talent';
 import { Sparkles, Download, RotateCcw, Search, User, Shield } from 'lucide-react';
 
 interface CharacterHeaderProps {
@@ -11,8 +11,8 @@ interface CharacterHeaderProps {
   spentPoints: number;
   remainingPoints: number;
   freeSurgesChosen: string[];
-  activeCategory: PathCategory | 'all';
-  onCategoryChange: (category: PathCategory | 'all') => void;
+  activeSection: TreeSection;
+  onSectionChange: (section: TreeSection) => void;
   onOpenSheet: () => void;
   onReset: () => void;
   onOpenSearch: () => void;
@@ -28,8 +28,8 @@ export const CharacterHeader: React.FC<CharacterHeaderProps> = ({
   spentPoints,
   remainingPoints,
   freeSurgesChosen,
-  activeCategory,
-  onCategoryChange,
+  activeSection,
+  onSectionChange,
   onOpenSheet,
   onReset,
   onOpenSearch,
@@ -171,35 +171,32 @@ export const CharacterHeader: React.FC<CharacterHeaderProps> = ({
       </div>
 
       {/* Bottom Category Filter & Legend Bar */}
-      <div className="mt-2.5 flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-800/60">
+      <div className="relative mt-2.5 flex flex-wrap items-center justify-center gap-2 pt-2 border-t border-slate-800/60">
         {/* Navigation Tabs */}
-        <div className="flex items-center gap-1 overflow-x-auto py-0.5">
+        <div className="flex w-full items-center justify-center gap-1 py-0.5">
           {[
-            { id: 'all', label: 'Todo el Árbol' },
-            { id: 'heroic', label: 'Heroic Paths' },
-            { id: 'radiant', label: 'Radiant Paths' },
-            { id: 'metallic', label: 'Metallic Arts' },
-            { id: 'awakening', label: 'Awakening' },
-            { id: 'sand', label: 'Sand Mastery' },
-            { id: 'dor', label: 'The Dor' },
+            { id: 'heroic', label: 'HEROIC PATHS' },
+            { id: 'investiture', label: 'INVESTITURE PATHS' },
           ].map((tab) => (
             <button
               key={tab.id}
               type="button"
-              onClick={() => onCategoryChange(tab.id as PathCategory | 'all')}
-              className={`rounded-lg px-2.5 py-1 text-xs font-medium whitespace-nowrap transition-colors cursor-pointer ${
-                activeCategory === tab.id
-                  ? 'bg-sky-600/30 border border-sky-500/50 text-sky-200'
-                  : 'text-slate-400 hover:bg-slate-900 hover:text-slate-200'
+              onClick={() => onSectionChange(tab.id as TreeSection)}
+              className={`font-cinzel-decorative relative border border-transparent bg-transparent px-3 sm:px-4 py-1.5 text-xs sm:text-sm tracking-wider whitespace-nowrap transition-colors cursor-pointer ${
+                activeSection === tab.id
+                  ? 'text-white'
+                  : 'text-slate-400 hover:text-slate-200'
               }`}
             >
-              {tab.label}
+              <span className={activeSection === tab.id ? 'tree-tab-label-glow' : ''}>
+                {tab.label}
+              </span>
             </button>
           ))}
         </div>
 
         {/* PoE Node Status Legend */}
-        <div className="flex items-center gap-3 text-[11px] text-slate-400 font-medium">
+        <div className="flex w-full items-center justify-center gap-3 text-[11px] text-slate-400 font-medium lg:absolute lg:right-0 lg:w-auto">
           <div className="flex items-center gap-1.5">
             <span className="h-2.5 w-2.5 rounded bg-blue-500 shadow-sm shadow-blue-500/50" />
             <span className="text-blue-300">Adquirido (Azul)</span>

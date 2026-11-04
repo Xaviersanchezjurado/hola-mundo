@@ -1,17 +1,10 @@
-export type PathCategory = 
-  | 'heroic' 
-  | 'radiant' 
-  | 'metallic' 
-  | 'awakening' 
-  | 'sand' 
-  | 'dor';
-
+export type TreeSection = 'heroic' | 'investiture';
 export type NodeStatus = 'acquired' | 'available' | 'locked';
+export type PathCategory = 'heroic' | 'radiant' | 'metallic' | 'awakening' | 'sand' | 'dor';
 
 export interface TalentNode {
   id: string;
-  name: string;        // Exact display name with code (e.g. "1 Sure Outcome")
-  shortName: string;   // Rect title label (e.g. "Sure Outcome")
+  name: string;        // Short display name shown on tree nodes and tooltips (e.g. "Sure Outcome")
   code?: string;       // "key", "1", "2", "3", "4", "a", "b", "c", "d", "&", "free"
   description: string; // Exact verbatim text from the PDF
   category: PathCategory;
